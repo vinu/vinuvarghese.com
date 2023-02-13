@@ -84,7 +84,7 @@
 					<div class="col-md-12 col-sm-12">
 						<div class="single_banner_text wow zoomIn" data-wow-duration="1s">
 							<h2>HELLO, I'am Vinu Varghese</h2>
-							<h5>Son, Husband, Father & Techinical Architect</h5>
+							<h5>Son, Brother, Husband, Father & Technical Architect</h5>
 							
 							<div class="separetor"></div>
 						</div>
@@ -116,7 +116,7 @@
 				</div>
 				<div class="wedo_content_area">
 					
-					<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="col-md-6 col-sm-6 col-xs-12 ext-link" data-link="https://www.linkedin.com/in/vinuvarghese/">
 						<div class="single_wedo wow fadeIn" data-wow-duration="1s">
 							<div class="single_left_icon">
 								<a href="https://www.linkedin.com/in/vinuvarghese/"><i class="fa fa-linkedin"></i></a>
@@ -129,7 +129,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="col-md-6 col-sm-6 col-xs-12 ext-link" data-link="https://stackoverflow.com/users/674067/jang00">
 						<div class="single_wedo wow fadeIn" data-wow-duration="1s">
 							<div class="single_left_icon">
 								<a href="https://stackoverflow.com/users/674067/jang00"><i class="fa fa-stack-overflow"></i></a>
@@ -142,7 +142,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="col-md-6 col-sm-6 col-xs-12 ext-link" data-link="https://github.com/vinu">
 						<div class="single_wedo wow fadeIn" data-wow-duration="1s">
 							<div class="single_left_icon">
 								<a href="https://github.com/vinu"><i class="fa fa-github"></i></a>
@@ -155,7 +155,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6 col-sm-6 col-xs-12">
+					<div class="col-md-6 col-sm-6 col-xs-12 ext-link" data-link="https://www.facebook.com/varghese.vinu">
 						<div class="single_wedo wow fadeIn" data-wow-duration="1s">
 							<div class="single_left_icon">
 								<a href="https://www.facebook.com/varghese.vinu"><i class="fa fa-facebook"></i></a>
@@ -227,5 +227,17 @@
 	
 	<script type="text/javascript" src="js/mixitup/jquery.mixitup.min.js"></script>
 	<script type="text/javascript" src="js/masonry/masonry.pkgd.min.js"></script>
+
+	<script>
+		$(document).on("ready", function(e) {
+			$('.ext-link').on('click', function(e) {
+				var link = $(this).attr("data-link");
+				if (link) {
+					window.location.href = link;
+				}
+			});
+		});
+	</script>
+
 </body>
 </html>
