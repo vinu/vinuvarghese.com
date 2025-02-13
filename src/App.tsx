@@ -20,7 +20,7 @@ function App() {
         {/* Content */}
         <div className="relative h-full flex flex-col items-center justify-center px-4">
           <img
-            src="/profile.jpg"
+            src="/profile.png"
             alt="Vinu Varghese"
             className="w-32 h-32 rounded-full border-2 border-blue-500 shadow-lg shadow-blue-500/20 mb-8 object-cover"
           />
