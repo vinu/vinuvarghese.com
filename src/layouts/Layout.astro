@@ -1,19 +1,15 @@
-<!doctype html>
+---
+const { title = 'Vinu Varghese | Technology Architect' } = Astro.props;
+const measurementId = 'G-39XTPTVSMS';
+---
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-39XTPTVSMS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-39XTPTVSMS');
-    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vinu Varghese | Technology Architect</title>
+    <title>{title}</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Vinu Varghese - Technology Architect specializing in cloud computing, AI/ML, and enterprise architecture. Expert in digital transformation and modern software solutions." />
@@ -29,9 +25,19 @@
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Vinu Varghese | Technology Architect" />
     <meta name="twitter:description" content="Technology Architect specializing in cloud computing, AI/ML, and enterprise architecture." />
+
+    <!-- Google Analytics -->
+    <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
+    <script type="text/partytown" define:vars={{ measurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', measurementId);
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <slot />
   </body>
 </html>

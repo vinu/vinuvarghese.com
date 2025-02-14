@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero';
+import Passions from '../components/Passions';
+import About from '../components/About';
+---
+
+<Layout>
+  <main class="min-h-screen bg-black text-white">
+    <Hero client:load />
+    <Passions />
+    <About />
+  </main>
+</Layout>
