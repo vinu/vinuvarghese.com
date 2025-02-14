@@ -34,30 +34,31 @@ export default function Hero() {
         </div>
         
         <div className="flex gap-6 mb-16">
-          <a href="https://github.com/vinu" className="group">
+          <a href="https://github.com/vinu" className="group" aria-label="GitHub" alt-text="GitHub" title='GitHub'>
             <div className="bg-white/5 hover:bg-white/10 p-3 rounded-full transition-all duration-300 border border-white/10 hover:border-blue-500/50">
               <Github className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
             </div>
           </a>
-          <a href="https://www.linkedin.com/in/vinuvarghese/" className="group">
+          <a href="https://www.linkedin.com/in/vinuvarghese/" className="group" aria-label="LinkedIn" alt-text="LinkedIn" title='LinkedIn'>
             <div className="bg-white/5 hover:bg-white/10 p-3 rounded-full transition-all duration-300 border border-white/10 hover:border-blue-500/50">
               <Linkedin className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
             </div>
           </a>
-          <a href="mailto:vinu@vinuvarghese.com" className="group">
+          <a href="mailto:vinu@vinuvarghese.com" className="group" aria-label="Email" alt-text="Email" title='Email'>
             <div className="bg-white/5 hover:bg-white/10 p-3 rounded-full transition-all duration-300 border border-white/10 hover:border-blue-500/50">
               <Mail className="w-6 h-6 group-hover:text-blue-400 transition-colors" />
             </div>
           </a>
-          <a href="https://stackoverflow.com/users/674067/jang00" className="group">
+          <a href="https://stackoverflow.com/users/674067/jang00" className="group" aria-label="Stack Overflow" alt-text="Stack Overflow" title='Stack Overflow'>
             <div className="bg-white/5 hover:bg-white/10 p-3 rounded-full transition-all duration-300 border border-white/10 hover:border-blue-500/50">
               <svg 
                 viewBox="0 0 24 24" 
                 className="w-6 h-6 group-hover:text-blue-400 transition-colors"
                 fill="currentColor"
               >
-                <path d="M15 21h-10v-2h10v2zm6-11.665l-1.621-9.335-1.993 0.346 1.62 9.335 1.994-0.346zm-5.964 4.665h-9.036v2h9.036v-2zm-9.036 4h7.036v-2h-7.036v2zm12.189-14.414l-7.189 4.414h2.429l7.189-4.414h-2.429zm4.811 10.414h-2.429l-7.189 4.414h2.429l7.189-4.414zm-16-2c0.99 0 1.8-0.81 1.8-1.8s-0.81-1.8-1.8-1.8-1.8 0.81-1.8 1.8 0.81 1.8 1.8 1.8z"/>
-              </svg>
+              <path d="M17.24 19.399v-4.804h1.6v6.375H4.96v-6.375h1.6v4.804z"/>
+              <path d="M7.674 14.574l7.85 1.645.332-1.577-7.85-1.644-.332 1.576zm1.04-3.736l7.272 3.385.664-1.453-7.272-3.402-.664 1.47zm2.013-3.57l6.17 5.126 1.02-1.225-6.17-5.127-1.02 1.225zm3.982-3.8l-1.29.955 4.778 6.44 1.29-.956-4.778-6.439zM7.4 17.932h8.013v-1.6H7.4v1.6z" />
+            </svg>
             </div>
           </a>
         </div>
@@ -66,6 +67,7 @@ export default function Hero() {
           onClick={scrollToPassions}
           className="absolute bottom-8 group cursor-pointer bg-transparent border-none focus:outline-none"
           aria-label="Scroll to passions section"
+          title='Scroll to passions section'
         >
           <div className="p-3 rounded-full transition-all duration-300 hover:bg-white/5">
             <ChevronDown className="w-6 h-6 text-blue-500 animate-bounce group-hover:text-blue-400" />
