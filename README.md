@@ -6,4 +6,4 @@
 
 ## 🌐 Site Overview
 
-This is the source code for [Vinu Varghese](https://www.vinuvarghese.com/) - a personal portfolio website.
+This is the source code for [Vinu Varghese](https://www.vinuvarghese.com/) - my personal portfolio website.
