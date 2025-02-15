@@ -1,5 +1,6 @@
-import React from 'react';
-import { Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, ChevronDown, TerminalIcon } from 'lucide-react';
+import TerminalPortfolio from './TerminalPortfolio';
 
 export default function Hero() {
   const scrollToPassions = () => {
@@ -8,6 +9,8 @@ export default function Hero() {
       passionsSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   return (
     <div className="relative h-screen">
@@ -74,6 +77,45 @@ export default function Hero() {
           </div>
         </button>
       </div>
+      {/* Terminal Modal */}
+      {isTerminalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="w-full max-w-4xl">
+            <div className="relative">
+              {/* Close button */}
+              <button
+                onClick={() => setIsTerminalOpen(false)}
+                className="absolute top-0 right-10  hover:text-white"
+              >
+                Press ESC to close
+              </button>
+              <TerminalPortfolio closeHandler={() => setIsTerminalOpen(false)}/>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Floating Terminal Button */}
+      <button
+        onClick={() => setIsTerminalOpen(true)}
+        className="fixed bottom-8 right-8 bg-green-500 hover:bg-green-600 text-black p-4 rounded-full shadow-lg transition-transform transform hover:scale-110 group"
+      >
+        <TerminalIcon size={24} />
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-black text-green-500 px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-sm">
+          Access Terminal
+        </span>
+      </button>
+
+      {/* ESC Key Handler */}
+      <div
+        tabIndex={-1}
+        onKeyDown={(e) => {
+          if (e.key === 'Escape') {
+            setIsTerminalOpen(false);
+          }
+        }}
+        className="outline-none"
+      />
     </div>
   );
 }
