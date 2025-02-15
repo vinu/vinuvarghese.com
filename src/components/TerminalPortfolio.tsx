@@ -33,6 +33,7 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
 - experience: Show work experience
 - contact: Get contact information
 - clear: Clear terminal
+- exit: Close terminal
 - help: Show this help message`,
         },
         about: {
@@ -44,7 +45,7 @@ A seasoned Technical Architect with extensive experience in enterprise solutions
 cloud architecture, and AI implementation. Specializing in designing scalable,
 cloud-native solutions and driving digital transformation initiatives.
 
-Location: [Your Location]
+Location: Trivandrum, India
 Current Focus: Enterprise Architecture & AI Solutions`,
         },
         skills: {
@@ -76,13 +77,11 @@ Current Focus: Enterprise Architecture & AI Solutions`,
             description: 'Show work experience',
             execute: () => `Professional Experience:
 
-[Current Role]
 Technical Architect
 • Leading enterprise-wide digital transformation initiatives
 • Designing cloud-native solutions and AI implementations
 • Developing technology strategy and roadmaps
 
-[Previous Roles]
 Senior Solutions Architect
 • Architected scalable cloud solutions
 • Led technical teams and projects
@@ -109,6 +108,13 @@ Website: vinuvarghese.com`,
         return '';
       },
     },
+    exit: {
+        description: 'Close terminal',
+        execute: () => {
+            closeHandler();
+            return '';
+        },
+    }
   };
 
   const handleCommand = (cmd: string): string => {
