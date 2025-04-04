@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero';
 import Passions from '../components/Passions';
 import About from '../components/About';
+import { getProfileImage } from '../utils/ImageUtils';
+const profileImage = await getProfileImage();
 ---
 
 <Layout>
   <main class="min-h-screen bg-black text-white">
-    <Hero client:load />
+    <Hero client:load profileImage={profileImage.src}/>
     <Passions />
     <About />
   </main>

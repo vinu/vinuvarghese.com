@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { Github, Linkedin, Mail, ChevronDown, TerminalIcon } from 'lucide-react';
 import TerminalPortfolio from './TerminalPortfolio';
 
-export default function Hero() {
+// Define the props interface
+interface HeroProps {
+  profileImage: string;
+}
+
+export default function Hero({ profileImage }: HeroProps) {
   const scrollToPassions = () => {
     const passionsSection = document.getElementById('passions');
     if (passionsSection) {
@@ -21,7 +26,7 @@ export default function Hero() {
       
       <div className="relative h-full flex flex-col items-center justify-center px-4">
         <img
-          src="/profile.png"
+          src={profileImage}
           alt="Vinu Varghese"
           className="w-32 h-32 rounded-full border-2 border-blue-500 shadow-lg shadow-blue-500/20 mb-8 object-cover"
         />
