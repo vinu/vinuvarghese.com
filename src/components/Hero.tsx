@@ -31,7 +31,7 @@ export default function Hero({ profileImage }: HeroProps) {
           className="w-32 h-32 rounded-full border-2 border-blue-500 shadow-lg shadow-blue-500/20 mb-8 object-cover"
         />
         <h1 className="text-6xl font-bold mb-4 text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+          <span className="animate-aurora">
             Vinu Varghese
           </span>
         </h1>
