@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Github, Linkedin, Mail, ChevronDown, TerminalIcon } from 'lucide-react';
 import TerminalPortfolio from './TerminalPortfolio';
 
@@ -8,6 +8,53 @@ interface HeroProps {
 }
 
 export default function Hero({ profileImage }: HeroProps) {
+
+  const sparkleContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = sparkleContainerRef.current;
+    if (!container) return;
+
+    // Create sparkles
+    const createSparkle = () => {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      
+      // Random position along grid lines (40px grid)
+      const x = Math.floor(Math.random() * (container.offsetWidth / 40)) * 40;
+      const y = Math.floor(Math.random() * (container.offsetHeight / 40)) * 40;
+      
+      sparkle.style.left = `${x}px`;
+      sparkle.style.top = `${y}px`;
+      sparkle.style.animationDelay = `${Math.random() * 2}s`;
+      
+      container.appendChild(sparkle);
+      
+      // Remove sparkle after animation
+      setTimeout(() => {
+        sparkle.remove();
+      }, 2000);
+    };
+
+    // Create initial sparkles
+    for (let i = 0; i < 20; i++) {
+      createSparkle();
+    }
+
+    // Create new sparkles periodically
+    const interval = setInterval(() => {
+      createSparkle();
+    }, 300);
+
+    return () => {
+      clearInterval(interval);
+      while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }
+    };
+  }, []);
+
+
   const scrollToPassions = () => {
     const passionsSection = document.getElementById('passions');
     if (passionsSection) {
@@ -22,6 +69,7 @@ export default function Hero({ profileImage }: HeroProps) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(17,24,39,1),rgba(0,0,0,1))]" />
       <div className="absolute inset-0">
         <div className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20" />
+        <div ref={sparkleContainerRef} className="absolute inset-0 overflow-hidden" />
       </div>
       
       <div className="relative h-full flex flex-col items-center justify-center px-4">

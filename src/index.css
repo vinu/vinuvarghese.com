@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @keyframes aurora {
   0% {
     background-position: 0% 50%;
@@ -13,6 +12,11 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
 }
 
 .animate-aurora {
@@ -30,4 +34,13 @@
   background-size: 300% 300%;
   animation: aurora 8s ease infinite;
   font-weight: 700;
+}
+
+.sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  animation: sparkle 2s ease-in-out infinite;
 }
