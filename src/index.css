@@ -2,46 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @keyframes aurora {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
   }
-  
-  @keyframes glow {
-    0%, 100% {
-      text-shadow: 0 0 30px rgba(59, 130, 246, 0.5),
-                   0 0 60px rgba(168, 85, 247, 0.3),
-                   0 0 80px rgba(236, 72, 153, 0.2);
-    }
-    50% {
-      text-shadow: 0 0 40px rgba(59, 130, 246, 0.6),
-                   0 0 80px rgba(168, 85, 247, 0.4),
-                   0 0 100px rgba(236, 72, 153, 0.3);
-    }
+  50% {
+    background-position: 100% 50%;
   }
-  
-  .animate-aurora {
-    background: linear-gradient(
-      270deg,
-      #60a5fa,
-      #a78bfa,
-      #f0abfc,
-      #f472b6,
-      #60a5fa
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    background-size: 300% 300%;
-    animation: aurora 8s ease infinite;
-    text-shadow: 3px 3px 20px rgba(59, 130, 246, 0.5),
-                -2px 1px 30px rgba(168, 85, 247, 0.5);
-    font-weight: 700;
+  100% {
+    background-position: 0% 50%;
   }
+}
+
+.animate-aurora {
+  background: linear-gradient(
+    270deg,
+    #FF0080,
+    #7928CA,
+    #0070F3,
+    #38bdf8,
+    #FF0080
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 300% 300%;
+  animation: aurora 8s ease infinite;
+  font-weight: 700;
+}
