@@ -32,7 +32,7 @@
   background-clip: text;
   color: transparent;
   background-size: 300% 300%;
-  animation: aurora 8s ease infinite;
+  animation: aurora 12s ease infinite;
   font-weight: 700;
 }
 
@@ -41,6 +41,30 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   animation: sparkle 2s ease-in-out infinite;
+}
+
+.dark .sparkle {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.timeline-line {
+  background: linear-gradient(
+    to bottom,
+    rgba(59, 130, 246, 0.5),
+    rgba(168, 85, 247, 0.5),
+    rgba(59, 130, 246, 0.1)
+  );
+}
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(59, 130, 246, 0.3),
+    rgba(168, 85, 247, 0.3),
+    transparent
+  );
 }
