@@ -1,32 +1,95 @@
 ---
 import '../index.css';
 import Footer from '../components/Footer';
-const { title = 'Vinu Varghese | Technology Architect' } = Astro.props;
+
+const {
+  title = 'Vinu Varghese | Technical Architect - Cloud & AI Solutions Expert',
+  description = 'Vinu Varghese - Technical Architect with 20+ years of experience in cloud computing (AWS, Azure), artificial intelligence, and full-stack enterprise solutions. Expert in digital transformation, microservices, and scalable system design.',
+} = Astro.props;
+
+const siteUrl = 'https://www.vinuvarghese.com';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 const measurementId = 'G-39XTPTVSMS';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Vinu Varghese',
+  url: siteUrl,
+  jobTitle: 'Technical Architect',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Xminds Infotech Pvt Ltd',
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Thiruvananthapuram',
+    addressRegion: 'Kerala',
+    addressCountry: 'IN',
+  },
+  email: 'vinu@vinuvarghese.com',
+  sameAs: [
+    'https://www.linkedin.com/in/vinuvarghese/',
+    'https://github.com/vinu',
+    'https://stackoverflow.com/users/674067/jang00',
+  ],
+  knowsAbout: [
+    'Cloud Architecture',
+    'AWS',
+    'Azure',
+    'Artificial Intelligence',
+    'Machine Learning',
+    'Microservices',
+    'Full-Stack Development',
+    'DevOps',
+    'Enterprise Architecture',
+    'Digital Transformation',
+  ],
+};
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth scroll-pt-20">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (stored !== 'light' && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalUrl} />
+
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Vinu Varghese - Technology Architect specializing in cloud computing, AI/ML, and enterprise architecture. Expert in digital transformation and modern software solutions." />
-    <meta name="keywords" content="technology architect, enterprise architect, cloud architecture, AI solutions, digital transformation, software architecture, technical leadership, cloud computing, artificial intelligence, machine learning, solution design, enterprise solutions, system architecture, technology strategy, cloud native, distributed systems" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content="technical architect, cloud architect, AI solutions, enterprise architecture, digital transformation, AWS, Azure, microservices, full-stack development, DevOps, Kubernetes, Docker, React, Java, Python, Rust, machine learning, distributed systems, Vinu Varghese" />
     <meta name="author" content="Vinu Varghese" />
-    
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Vinu Varghese | Technology Architect" />
-    <meta property="og:description" content="Technology Architect specializing in cloud computing, AI/ML, and enterprise architecture." />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    
-    <!-- Twitter Card Meta Tags -->
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Vinu Varghese" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Vinu Varghese | Technology Architect" />
-    <meta name="twitter:description" content="Technology Architect specializing in cloud computing, AI/ML, and enterprise architecture." />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
     <!-- Google Analytics -->
     <script type="text/partytown" async src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}></script>
@@ -39,7 +102,7 @@ const measurementId = 'G-39XTPTVSMS';
       gtag('config', measurementId);
     </script>
   </head>
-  <body>
+  <body class="transition-colors duration-300">
     <slot />
     <Footer />
   </body>
