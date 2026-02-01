@@ -4,7 +4,7 @@ import { experiences } from '../data/resume';
 
 export default function Experience() {
   return (
-    <section id="experience" className="scroll-mt-20 py-24 px-4">
+    <section id="experience" className="scroll-mt-20 py-12 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
@@ -90,7 +90,7 @@ export default function Experience() {
         </div>
       </div>
 
-      <div className="section-divider max-w-4xl mx-auto mt-24" />
+      <div className="section-divider max-w-4xl mx-auto mt-12 md:mt-24" />
     </section>
   );
 }
