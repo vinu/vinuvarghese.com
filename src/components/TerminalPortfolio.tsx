@@ -295,6 +295,15 @@ const WELCOME_BANNER = ` __     ___              __     __              _
   Type 'help' for available commands. Tab for autocomplete.
 `;
 
+const WELCOME_BANNER_MOBILE = `
+ Vinu Varghese
+ ──────────────────────
+ Technical Architect
+ Cloud & AI Solutions Expert
+
+ Type 'help' for commands.
+`;
+
 // ── Man Pages ────────────────────────────────────────────────────────────────
 
 const MAN_PAGES: Record<string, string> = {
@@ -386,7 +395,10 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
   const inputRef = useRef<HTMLInputElement>(null);
   const terminalRef = useRef<HTMLDivElement>(null);
 
-  const prompt = `vinu@vinuvarghese.com:${getPathString(currentPath)}$ `;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const prompt = isMobile
+    ? `vinu:${getPathString(currentPath)}$ `
+    : `vinu@vinuvarghese.com:${getPathString(currentPath)}$ `;
 
   // ── Command Handlers ─────────────────────────────────────────────────────
 
@@ -792,7 +804,8 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
   }, [history]);
 
   useEffect(() => {
-    setHistory([{ type: 'output', content: WELCOME_BANNER }]);
+    const banner = window.innerWidth < 768 ? WELCOME_BANNER_MOBILE : WELCOME_BANNER;
+    setHistory([{ type: 'output', content: banner }]);
   }, []);
 
   // Click on terminal body refocuses input
@@ -819,14 +832,14 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
             </div>
             <div className="flex-1 text-center text-gray-400 text-sm">
               <Terminal className="inline mr-2" size={14} />
-              vinu@vinuvarghese.com: {getPathString(currentPath)}
+              {isMobile ? 'vinu' : 'vinu@vinuvarghese.com'}: {getPathString(currentPath)}
             </div>
           </div>
 
           {/* Terminal Body */}
           <div
             ref={terminalRef}
-            className="p-4 h-[28rem] overflow-y-auto cursor-text"
+            className="p-4 h-[28rem] overflow-y-auto overflow-x-hidden cursor-text"
             onClick={handleBodyClick}
           >
             {history.map((entry, index) => (

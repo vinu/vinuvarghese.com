@@ -50,7 +50,7 @@ const contactItems = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="scroll-mt-20 py-24 px-4">
+    <section id="contact" className="scroll-mt-20 py-12 md:py-24 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
