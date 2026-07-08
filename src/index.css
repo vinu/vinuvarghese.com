@@ -1,70 +1,49 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/index.css";
 
-@keyframes aurora {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* warm paper / warm ink palette with a single copper accent */
+  --color-paper: #f5f2ea;
+  --color-night: #100f0d;
+  --color-ink: #1e1c18;
+  --color-copper: #bd4b12;
+  --color-copper-bright: #ff8c4d;
+
+  --animate-blink: blink 1.1s step-end infinite;
+  --animate-fade-up: fade-up 0.7s ease-out both;
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0); }
-  50% { opacity: 1; transform: scale(1); }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-.animate-aurora {
-  background: linear-gradient(
-    270deg,
-    #FF0080,
-    #7928CA,
-    #0070F3,
-    #38bdf8,
-    #FF0080
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  background-size: 300% 300%;
-  animation: aurora 12s ease infinite;
-  font-weight: 700;
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.sparkle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-  animation: sparkle 2s ease-in-out infinite;
+:root {
+  --grid-line: rgba(30, 28, 24, 0.07);
+}
+.dark {
+  --grid-line: rgba(255, 255, 255, 0.055);
 }
 
-.dark .sparkle {
-  background-color: rgba(255, 255, 255, 0.4);
+/* blueprint grid texture, fades out toward the bottom */
+.blueprint {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(to bottom, black 60%, transparent);
 }
 
-.timeline-line {
-  background: linear-gradient(
-    to bottom,
-    rgba(59, 130, 246, 0.5),
-    rgba(168, 85, 247, 0.5),
-    rgba(59, 130, 246, 0.1)
-  );
-}
-
-.section-divider {
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(59, 130, 246, 0.3),
-    rgba(168, 85, 247, 0.3),
-    transparent
-  );
+::selection {
+  background-color: var(--color-copper);
+  color: var(--color-paper);
 }
