@@ -3,69 +3,25 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="404 - Page Not Found | Vinu Varghese">
-  <main class="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-white flex flex-col items-center justify-center px-4 transition-colors">
-    <div class="relative">
-      <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-3xl opacity-20"></div>
+  <main class="relative min-h-svh flex flex-col items-center justify-center px-6">
+    <div class="absolute inset-0 blueprint" aria-hidden="true"></div>
 
-      <div class="relative max-w-2xl mx-auto text-center">
-        <div class="mb-8 inline-block">
-          <svg
-            width="120"
-            height="120"
-            viewBox="0 0 120 120"
-            class="mx-auto"
-          >
-            <defs>
-              <linearGradient id="errorGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#3B82F6" />
-                <stop offset="50%" stop-color="#A855F7" />
-                <stop offset="100%" stop-color="#EC4899" />
-              </linearGradient>
-            </defs>
-            <rect
-              x="10"
-              y="10"
-              width="100"
-              height="100"
-              fill="none"
-              stroke="url(#errorGradient)"
-              stroke-width="4"
-              rx="8"
-            />
-            <text
-              x="60"
-              y="75"
-              text-anchor="middle"
-              font-family="monospace"
-              font-weight="bold"
-              font-size="48"
-              fill="url(#errorGradient)"
-            >
-              404
-            </text>
-          </svg>
-        </div>
-
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-          Page Not Found
-        </h1>
-
-        <p class="text-gray-500 dark:text-gray-400 text-lg mb-10 max-w-lg mx-auto">
-          The page you're looking for doesn't exist or has been moved to another location.
-        </p>
-
-        <div class="relative inline-block group">
-          <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-300"></div>
-          <a
-            href="/"
-            class="relative inline-flex items-center justify-center px-8 py-3 bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-lg font-medium transition-all duration-300 hover:border-blue-500/50"
-          >
-            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">
-              Return Home
-            </span>
-          </a>
-        </div>
-      </div>
+    <div class="relative max-w-xl w-full">
+      <p class="font-mono text-xs text-copper dark:text-copper-bright mb-6">
+        <span class="opacity-60">vinu@vinuvarghese.com:~$</span> cat requested-page
+      </p>
+      <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-6">
+        404<span class="text-copper dark:text-copper-bright">.</span>
+      </h1>
+      <p class="font-mono text-sm text-stone-500 dark:text-stone-400 mb-10">
+        cat: requested-page: No such file or directory
+      </p>
+      <a
+        href="/"
+        class="inline-block font-mono text-sm border border-ink/20 dark:border-white/20 px-5 py-3 hover:border-copper hover:text-copper dark:hover:border-copper-bright dark:hover:text-copper-bright transition-colors"
+      >
+        $ cd ~
+      </a>
     </div>
   </main>
 </Layout>

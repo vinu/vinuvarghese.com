@@ -12,7 +12,7 @@ const profileImage = await getProfileImage();
 
 <Layout>
   <Navigation client:load />
-  <main class="min-h-screen bg-gray-50 dark:bg-black text-gray-900 dark:text-white transition-colors">
+  <main class="min-h-screen">
     <Hero client:load profileImage={profileImage.src} />
     <About />
     <Experience />

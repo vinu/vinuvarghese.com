@@ -1,32 +1,24 @@
 import React from 'react';
-
-const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-];
+import { navItems } from '../data/resume';
 
 export default function Footer() {
   return (
-    <footer className="py-8 border-t border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-black transition-colors">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex flex-col items-center gap-4">
-          <nav className="flex flex-wrap justify-center gap-6 text-sm">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <div className="text-gray-400 dark:text-gray-500 text-sm">
-            &copy; {new Date().getFullYear()} Vinu Varghese. All rights reserved.
-          </div>
-        </div>
+    <footer className="py-10 border-t border-ink/10 dark:border-white/10 px-6">
+      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <nav className="flex flex-wrap justify-center gap-6 font-mono text-xs">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+            >
+              {item.label.toLowerCase()}
+            </a>
+          ))}
+        </nav>
+        <p className="font-mono text-xs text-stone-500 dark:text-stone-400">
+          © {new Date().getFullYear()} Vinu Varghese · built with Astro
+        </p>
       </div>
     </footer>
   );
