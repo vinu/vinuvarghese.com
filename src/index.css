@@ -86,22 +86,6 @@
   background: rgba(22, 21, 18, 0.5);
 }
 
-/* architecture diagram: wires draw themselves in when revealed */
-.diagram .wire {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-}
-.in-view.diagram .wire,
-.in-view .diagram .wire {
-  animation: draw 1.8s ease forwards;
-}
-@keyframes draw {
-  to { stroke-dashoffset: 0; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .diagram .wire { stroke-dasharray: none; stroke-dashoffset: 0; }
-}
-
 /* constellation node float */
 @keyframes float-y {
   0%, 100% { transform: translateY(0); }

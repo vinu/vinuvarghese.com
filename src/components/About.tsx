@@ -1,7 +1,6 @@
 import React from 'react';
 import { professionalSummary, professionalSummary2, stats } from '../data/resume';
 import SectionHeading from './SectionHeading';
-import ArchDiagram from './ArchDiagram';
 
 export default function About() {
   return (
@@ -33,8 +32,6 @@ export default function About() {
             ))}
           </div>
         </div>
-
-        <ArchDiagram />
       </div>
     </section>
   );

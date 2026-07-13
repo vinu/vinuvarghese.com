@@ -33,7 +33,7 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 - `src/pages/` — Astro file-based routing (`index.astro`, `404.astro`)
 - `src/layouts/Layout.astro` — Main layout wrapper (SEO meta, JSON-LD, analytics, fonts, theme init script)
-- `src/components/` — React components (Navigation, Hero, HeroScene, About, ArchDiagram, Experience, Skills, Contact, Footer, SectionHeading, Icons, TerminalPortfolio)
+- `src/components/` — React components (Navigation, Hero, HeroScene, About, Experience, Skills, Contact, Footer, SectionHeading, Icons, TerminalPortfolio)
 - `src/data/resume.ts` — Centralized resume data (experiences, skills, stats, contact links, nav items). Single source of truth used by multiple components.
 - `src/utils/ImageUtils.ts` — Image optimization via Astro's `getImage()` API
 - `src/index.css` — Tailwind 4 `@theme` tokens, keyframes, blueprint grid utility
