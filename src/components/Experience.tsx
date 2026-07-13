@@ -21,8 +21,7 @@ export default function Experience() {
                 aria-hidden="true"
               />
               <div
-                data-tilt
-                className="glass border border-ink/10 dark:border-white/10 p-6 md:p-8 hover:border-copper/40 dark:hover:border-copper-bright/40 hover:shadow-[0_16px_48px_-16px_rgba(189,75,18,0.35)] dark:hover:shadow-[0_16px_48px_-16px_rgba(255,140,77,0.25)]"
+                className="glass border border-ink/10 dark:border-white/10 p-6 md:p-8 transition-[border-color,box-shadow] duration-300 hover:border-copper/40 dark:hover:border-copper-bright/40 hover:shadow-[0_16px_48px_-16px_rgba(189,75,18,0.35)] dark:hover:shadow-[0_16px_48px_-16px_rgba(255,140,77,0.25)]"
               >
                 <p className="font-mono text-xs text-copper dark:text-copper-bright mb-3">
                   {exp.period} · {exp.duration}

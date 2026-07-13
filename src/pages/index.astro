@@ -33,23 +33,9 @@ const profileImage = await getProfileImage();
           }
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0.05 }
     );
     document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
-
-    const MAX_TILT = 4;
-    document.querySelectorAll<HTMLElement>('[data-tilt]').forEach((el) => {
-      el.addEventListener('pointermove', (e) => {
-        if (e.pointerType !== 'mouse') return;
-        const r = el.getBoundingClientRect();
-        const x = (e.clientX - r.left) / r.width - 0.5;
-        const y = (e.clientY - r.top) / r.height - 0.5;
-        el.style.transform = `perspective(900px) rotateX(${(-y * MAX_TILT).toFixed(2)}deg) rotateY(${(x * MAX_TILT).toFixed(2)}deg) translateY(-2px)`;
-      });
-      el.addEventListener('pointerleave', () => {
-        el.style.transform = '';
-      });
-    });
 
     document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((el) => {
       el.addEventListener('pointermove', (e) => {

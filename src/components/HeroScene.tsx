@@ -16,12 +16,13 @@ function useThemeColors() {
     mo.observe(el, { attributes: true, attributeFilter: ['class'] });
     return () => mo.disconnect();
   }, []);
+  // light paper needs a bolder cube and a quieter network than dark
   return dark
-    ? { accent: '#ff8c4d', line: '#d6d3d1' }
-    : { accent: '#bd4b12', line: '#44403c' };
+    ? { accent: '#ff8c4d', line: '#d6d3d1', cube: 0.55, net: 0.12, dot: 0.5 }
+    : { accent: '#bd4b12', line: '#78716c', cube: 0.75, net: 0.07, dot: 0.32 };
 }
 
-function Network({ line }: { line: string }) {
+function Network({ line, net, dot }: { line: string; net: number; dot: number }) {
   const data = useMemo(() => {
     const pos = new Float32Array(COUNT * 3);
     const vel = new Float32Array(COUNT * 3);
@@ -80,16 +81,16 @@ function Network({ line }: { line: string }) {
   return (
     <group position={[0, 0, -1.5]}>
       <points geometry={pointsGeom}>
-        <pointsMaterial color={line} size={0.04} sizeAttenuation transparent opacity={0.5} />
+        <pointsMaterial color={line} size={0.04} sizeAttenuation transparent opacity={dot} />
       </points>
       <lineSegments geometry={linesGeom}>
-        <lineBasicMaterial color={line} transparent opacity={0.12} />
+        <lineBasicMaterial color={line} transparent opacity={net} />
       </lineSegments>
     </group>
   );
 }
 
-function WireCubes({ accent }: { accent: string }) {
+function WireCubes({ accent, cube }: { accent: string; cube: number }) {
   const outer = useRef<THREE.Group>(null);
   const inner = useRef<THREE.LineSegments>(null);
   const outerGeom = useMemo(() => new THREE.EdgesGeometry(new THREE.BoxGeometry(1.7, 1.7, 1.7)), []);
@@ -108,10 +109,10 @@ function WireCubes({ accent }: { accent: string }) {
   return (
     <group ref={outer} position={[3.4, 0.4, -0.6]}>
       <lineSegments geometry={outerGeom}>
-        <lineBasicMaterial color={accent} transparent opacity={0.55} />
+        <lineBasicMaterial color={accent} transparent opacity={cube} />
       </lineSegments>
       <lineSegments ref={inner} geometry={innerGeom}>
-        <lineBasicMaterial color={accent} transparent opacity={0.3} />
+        <lineBasicMaterial color={accent} transparent opacity={cube * 0.55} />
       </lineSegments>
     </group>
   );
@@ -159,8 +160,8 @@ export default function HeroScene() {
         camera={{ position: [0, 0, 6], fov: 55 }}
       >
         <Rig>
-          <Network line={colors.line} />
-          <WireCubes accent={colors.accent} />
+          <Network line={colors.line} net={colors.net} dot={colors.dot} />
+          <WireCubes accent={colors.accent} cube={colors.cube} />
         </Rig>
       </Canvas>
     </div>
