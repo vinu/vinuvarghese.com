@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { Mail, ArrowDown, TerminalIcon } from 'lucide-react';
 import TerminalPortfolio from './TerminalPortfolio';
 import { GitHubIcon, LinkedInIcon } from './Icons';
+
+// three.js lives in its own chunk, fetched after hydration
+const HeroScene = lazy(() => import('./HeroScene'));
 
 interface HeroProps {
   profileImage: string;
@@ -15,6 +18,13 @@ const socialLinks = [
 
 export default function Hero({ profileImage }: HeroProps) {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [sceneReady, setSceneReady] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const probe = document.createElement('canvas');
+    if (probe.getContext('webgl2') || probe.getContext('webgl')) setSceneReady(true);
+  }, []);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -27,6 +37,11 @@ export default function Hero({ profileImage }: HeroProps) {
   return (
     <section className="relative min-h-svh flex flex-col overflow-hidden">
       <div className="absolute inset-0 blueprint" aria-hidden="true" />
+      {sceneReady && (
+        <Suspense fallback={null}>
+          <HeroScene />
+        </Suspense>
+      )}
 
       <div className="relative flex-1 flex items-center">
         <div className="max-w-6xl mx-auto w-full px-6 pt-28 pb-20 grid md:grid-cols-[1fr_auto] gap-14 items-center">
@@ -53,6 +68,7 @@ export default function Hero({ profileImage }: HeroProps) {
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
               <button
                 onClick={() => setIsTerminalOpen(true)}
+                data-magnetic
                 className="font-mono text-sm border border-ink/20 dark:border-white/20 px-5 py-3 hover:border-copper hover:text-copper dark:hover:border-copper-bright dark:hover:text-copper-bright transition-colors"
               >
                 $ ./portfolio --interactive

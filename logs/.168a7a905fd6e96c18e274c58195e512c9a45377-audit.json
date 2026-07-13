@@ -1,0 +1,25 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/Users/vinu/code/vinu/vinuvarghese.com/logs/.168a7a905fd6e96c18e274c58195e512c9a45377-audit.json",
+    "files": [
+        {
+            "date": 1783522176875,
+            "name": "/Users/vinu/code/vinu/vinuvarghese.com/logs/mcp-puppeteer-2026-07-08.log",
+            "hash": "d4709c3da929a59102825936bbaed1bedc255181edd04bcd91ab63c3431ce1ca"
+        },
+        {
+            "date": 1783574888129,
+            "name": "/Users/vinu/code/vinu/vinuvarghese.com/logs/mcp-puppeteer-2026-07-09.log",
+            "hash": "b1689a022b231e4cf020ef3a7e24201a6f65c1a9defeb9c63851c85f9b68ff2a"
+        },
+        {
+            "date": 1783927953116,
+            "name": "/Users/vinu/code/vinu/vinuvarghese.com/logs/mcp-puppeteer-2026-07-13.log",
+            "hash": "b67c7143c51364553012d55738ae4deaffb57ef6db9721db02f18e078d0cd4e4"
+        }
+    ],
+    "hashType": "sha256"
+}

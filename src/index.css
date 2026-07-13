@@ -47,3 +47,63 @@
   background-color: var(--color-copper);
   color: var(--color-paper);
 }
+
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+}
+.dark :focus-visible {
+  outline-color: var(--color-copper-bright);
+}
+
+/* reveal-on-scroll: hidden state only when JS is running (html.js) */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  .js [data-reveal].in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 3D tilt cards — transform set by the enhance script */
+[data-tilt] {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease-out, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+/* glassmorphism, used sparingly */
+.glass {
+  background: rgba(245, 242, 234, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.dark .glass {
+  background: rgba(22, 21, 18, 0.5);
+}
+
+/* architecture diagram: wires draw themselves in when revealed */
+.diagram .wire {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+}
+.in-view.diagram .wire,
+.in-view .diagram .wire {
+  animation: draw 1.8s ease forwards;
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .diagram .wire { stroke-dasharray: none; stroke-dashoffset: 0; }
+}
+
+/* constellation node float */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}

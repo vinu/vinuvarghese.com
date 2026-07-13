@@ -20,8 +20,10 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 **Astro 7 + React 19 + Tailwind CSS 4** using Astro's Islands Architecture.
 
-- Pages are static HTML by default. React components hydrate only when marked with `client:load` in Astro templates.
-- Only `Navigation.tsx` and `Hero.tsx` are hydrated client-side (`client:load`); all other components render as static HTML.
+- Pages are static HTML by default. React components hydrate only when marked with a `client:*` directive in Astro templates.
+- Hydrated islands: `Navigation.tsx` and `Hero.tsx` (`client:load`), `Skills.tsx` (`client:visible`). Everything else renders as static HTML.
+- `HeroScene.tsx` (React Three Fiber: wireframe cubes + particle network behind the hero) is `React.lazy`-loaded from `Hero.tsx`, so three.js (~230KB gz) sits in its own chunk fetched after hydration and never blocks first paint. It's gated on WebGL support and `prefers-reduced-motion`, watches the `dark` class for theme colors, and pauses its frameloop when the hero is off-screen.
+- Scroll/hover effects (reveal-on-scroll `[data-reveal]`, card tilt `[data-tilt]`, magnetic buttons `[data-magnetic]`) are one vanilla script in `index.astro`, all skipped under `prefers-reduced-motion`. The head script adds an `html.js` class — reveal-hiding CSS only applies under `.js` so no-JS visitors see full content.
 - Tailwind 4 runs via `@tailwindcss/postcss` (`postcss.config.mjs`) — NOT `@tailwindcss/vite`, which breaks against Astro 7's rolldown-based Vite 8, and NOT the deprecated `@astrojs/tailwind`. There is no `tailwind.config` file; all theme tokens live in `src/index.css` under `@theme`.
 - Google Analytics runs in a Web Worker via Partytown integration.
 - `@astrojs/sitemap` generates XML sitemaps at build time.
@@ -31,7 +33,7 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 - `src/pages/` — Astro file-based routing (`index.astro`, `404.astro`)
 - `src/layouts/Layout.astro` — Main layout wrapper (SEO meta, JSON-LD, analytics, fonts, theme init script)
-- `src/components/` — React components (Navigation, Hero, About, Experience, Skills, Contact, Footer, SectionHeading, Icons, TerminalPortfolio)
+- `src/components/` — React components (Navigation, Hero, HeroScene, About, ArchDiagram, Experience, Skills, Contact, Footer, SectionHeading, Icons, TerminalPortfolio)
 - `src/data/resume.ts` — Centralized resume data (experiences, skills, stats, contact links, nav items). Single source of truth used by multiple components.
 - `src/utils/ImageUtils.ts` — Image optimization via Astro's `getImage()` API
 - `src/index.css` — Tailwind 4 `@theme` tokens, keyframes, blueprint grid utility

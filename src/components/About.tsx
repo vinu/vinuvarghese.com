@@ -1,6 +1,7 @@
 import React from 'react';
 import { professionalSummary, professionalSummary2, stats } from '../data/resume';
 import SectionHeading from './SectionHeading';
+import ArchDiagram from './ArchDiagram';
 
 export default function About() {
   return (
@@ -9,7 +10,7 @@ export default function About() {
         <SectionHeading index="01" title="About" />
 
         <div className="grid md:grid-cols-12 gap-10">
-          <div className="md:col-span-7">
+          <div data-reveal className="md:col-span-7">
             <p className="text-lg leading-relaxed mb-5">{professionalSummary}</p>
             <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
               {professionalSummary2}
@@ -17,8 +18,13 @@ export default function About() {
           </div>
 
           <div className="md:col-span-5 grid grid-cols-2 gap-x-8 gap-y-10 content-start">
-            {stats.map((stat) => (
-              <div key={stat.label} className="border-t-2 border-copper dark:border-copper-bright pt-4">
+            {stats.map((stat, i) => (
+              <div
+                key={stat.label}
+                data-reveal
+                style={{ '--reveal-delay': `${i * 90}ms` } as React.CSSProperties}
+                className="border-t-2 border-copper dark:border-copper-bright pt-4"
+              >
                 <div className="text-4xl font-bold tracking-tight">{stat.value}</div>
                 <div className="font-mono text-xs text-stone-500 dark:text-stone-400 mt-2 uppercase tracking-wider">
                   {stat.label}
@@ -27,6 +33,8 @@ export default function About() {
             ))}
           </div>
         </div>
+
+        <ArchDiagram />
       </div>
     </section>
   );
