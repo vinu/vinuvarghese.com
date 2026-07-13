@@ -96,8 +96,11 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* hairline grid — mobile & fallback */}
-        <div className="md:hidden grid sm:grid-cols-2 gap-px bg-ink/10 dark:bg-white/10 border border-ink/10 dark:border-white/10">
+        {/* full index — always visible so nothing hides behind interaction */}
+        <p data-reveal className="hidden md:block font-mono text-xs text-stone-500 dark:text-stone-400 mt-4 mb-6">
+          $ ls -R ~/skills <span className="opacity-60">— full index</span>
+        </p>
+        <div data-reveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 dark:bg-white/10 border border-ink/10 dark:border-white/10">
           {skillCategories.map((category, i) => (
             <div key={category.id} className="bg-paper dark:bg-night p-6 md:p-8">
               <div className="flex items-baseline justify-between mb-6">
