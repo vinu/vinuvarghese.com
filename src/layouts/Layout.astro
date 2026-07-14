@@ -82,6 +82,7 @@ const jsonLd = {
     <meta charset="UTF-8" />
     <script is:inline>
       (function() {
+        document.documentElement.classList.add('js');
         const stored = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         if (stored === 'dark' || (stored !== 'light' && prefersDark)) {

@@ -47,3 +47,45 @@
   background-color: var(--color-copper);
   color: var(--color-paper);
 }
+
+:focus-visible {
+  outline: 2px solid var(--color-copper);
+  outline-offset: 3px;
+}
+.dark :focus-visible {
+  outline-color: var(--color-copper-bright);
+}
+/* opt-out for the terminal input — its blinking caret is the focus indicator */
+.no-focus-ring:focus-visible {
+  outline: none;
+}
+
+/* reveal-on-scroll: hidden state only when JS is running (html.js) */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  .js [data-reveal].in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* glassmorphism, used sparingly */
+.glass {
+  background: rgba(245, 242, 234, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.dark .glass {
+  background: rgba(22, 21, 18, 0.5);
+}
+
+/* constellation node float */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}

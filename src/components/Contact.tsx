@@ -8,12 +8,12 @@ export default function Contact() {
       <div className="max-w-6xl mx-auto">
         <SectionHeading index="04" title="Contact" />
 
-        <p className="text-stone-600 dark:text-stone-400 max-w-xl mb-12">
+        <p data-reveal className="text-stone-600 dark:text-stone-400 max-w-xl mb-12">
           Always open to discussing technology, architecture, and new
           opportunities. Reach out on any channel.
         </p>
 
-        <div className="border-t border-ink/10 dark:border-white/10">
+        <div data-reveal className="border-t border-ink/10 dark:border-white/10">
           {contactLinks.map((link) => {
             const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto');
             const Row = isExternal ? 'a' : 'div';

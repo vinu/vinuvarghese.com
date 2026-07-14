@@ -816,22 +816,22 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
   // ── Render ─────────────────────────────────────────────────────────────
 
   return (
-    <div className="bg-black text-green-500 p-4 font-mono">
+    <div className="font-mono text-stone-300">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-gray-900 rounded-lg shadow-lg overflow-hidden border border-white/10">
+        <div className="bg-night shadow-[0_32px_80px_-24px_rgba(0,0,0,0.7)] overflow-hidden border border-white/15">
           {/* Terminal Header */}
-          <div className="bg-gray-800 px-4 py-2 flex items-center">
+          <div className="border-b border-white/10 px-4 py-2.5 flex items-center">
             <div className="flex space-x-2">
               <button
                 onClick={closeHandler}
-                className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors"
+                className="w-2.5 h-2.5 bg-copper-bright hover:bg-copper transition-colors"
                 aria-label="Close terminal"
               />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
+              <div className="w-2.5 h-2.5 border border-white/25" />
+              <div className="w-2.5 h-2.5 border border-white/25" />
             </div>
-            <div className="flex-1 text-center text-gray-400 text-sm">
-              <Terminal className="inline mr-2" size={14} />
+            <div className="flex-1 text-center text-stone-500 text-xs">
+              <Terminal className="inline mr-2" size={13} />
               {isMobile ? 'vinu' : 'vinu@vinuvarghese.com'}: {getPathString(currentPath)}
             </div>
           </div>
@@ -851,14 +851,14 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
             ))}
 
             <form onSubmit={handleSubmit} className="flex text-sm">
-              <span className="mr-1 shrink-0 text-green-400">{prompt}</span>
+              <span className="mr-1 shrink-0 text-copper-bright">{prompt}</span>
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent outline-none caret-green-400"
+                className="flex-1 bg-transparent outline-none no-focus-ring caret-copper-bright"
                 autoFocus
                 spellCheck={false}
                 autoComplete="off"

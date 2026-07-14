@@ -16,7 +16,36 @@ const profileImage = await getProfileImage();
     <Hero client:load profileImage={profileImage.src} />
     <About />
     <Experience />
-    <Skills />
+    <Skills client:visible />
     <Contact />
   </main>
 </Layout>
+
+<script>
+  // reveal-on-scroll, card tilt, magnetic buttons — all skipped for reduced motion
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
+
+    document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach((el) => {
+      el.addEventListener('pointermove', (e) => {
+        if (e.pointerType !== 'mouse') return;
+        const r = el.getBoundingClientRect();
+        el.style.translate = `${(e.clientX - r.left - r.width / 2) * 0.15}px ${(e.clientY - r.top - r.height / 2) * 0.15}px`;
+      });
+      el.addEventListener('pointerleave', () => {
+        el.style.translate = '';
+      });
+    });
+  }
+</script>

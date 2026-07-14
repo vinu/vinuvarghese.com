@@ -9,32 +9,41 @@ export default function Experience() {
         <SectionHeading index="02" title="Experience" />
 
         <ol className="relative border-l border-ink/10 dark:border-white/10 ml-1">
-          {experiences.map((exp) => (
-            <li key={exp.id} className="relative pl-8 md:pl-12 pb-14 last:pb-0">
+          {experiences.map((exp, i) => (
+            <li
+              key={exp.id}
+              data-reveal
+              style={{ '--reveal-delay': `${(i % 2) * 90}ms` } as React.CSSProperties}
+              className="relative pl-8 md:pl-12 pb-14 last:pb-0"
+            >
               <span
-                className="absolute -left-[5.5px] top-1.5 w-2.5 h-2.5 bg-copper dark:bg-copper-bright"
+                className="absolute -left-[5.5px] top-9 w-2.5 h-2.5 bg-copper dark:bg-copper-bright"
                 aria-hidden="true"
               />
-              <p className="font-mono text-xs text-copper dark:text-copper-bright mb-3">
-                {exp.period} · {exp.duration}
-              </p>
-              <h3 className="text-xl md:text-2xl font-bold tracking-tight">{exp.role}</h3>
-              <p className="font-mono text-sm text-stone-500 dark:text-stone-400 mt-1 mb-4">
-                {exp.company} — {exp.location}
-              </p>
-              <p className="text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mb-4">
-                {exp.description}
-              </p>
-              <ul className="space-y-2 max-w-3xl">
-                {exp.achievements.map((achievement) => (
-                  <li key={achievement} className="flex gap-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-                    <span className="text-copper dark:text-copper-bright shrink-0" aria-hidden="true">
-                      ▸
-                    </span>
-                    {achievement}
-                  </li>
-                ))}
-              </ul>
+              <div
+                className="glass border border-ink/10 dark:border-white/10 p-6 md:p-8 transition-[border-color,box-shadow] duration-300 hover:border-copper/40 dark:hover:border-copper-bright/40 hover:shadow-[0_16px_48px_-16px_rgba(189,75,18,0.35)] dark:hover:shadow-[0_16px_48px_-16px_rgba(255,140,77,0.25)]"
+              >
+                <p className="font-mono text-xs text-copper dark:text-copper-bright mb-3">
+                  {exp.period} · {exp.duration}
+                </p>
+                <h3 className="text-xl md:text-2xl font-bold tracking-tight">{exp.role}</h3>
+                <p className="font-mono text-sm text-stone-500 dark:text-stone-400 mt-1 mb-4">
+                  {exp.company} — {exp.location}
+                </p>
+                <p className="text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mb-4">
+                  {exp.description}
+                </p>
+                <ul className="space-y-2 max-w-3xl">
+                  {exp.achievements.map((achievement) => (
+                    <li key={achievement} className="flex gap-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
+                      <span className="text-copper dark:text-copper-bright shrink-0" aria-hidden="true">
+                        ▸
+                      </span>
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </li>
           ))}
         </ol>
