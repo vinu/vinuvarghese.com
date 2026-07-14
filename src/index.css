@@ -55,6 +55,10 @@
 .dark :focus-visible {
   outline-color: var(--color-copper-bright);
 }
+/* opt-out for the terminal input — its blinking caret is the focus indicator */
+.no-focus-ring:focus-visible {
+  outline: none;
+}
 
 /* reveal-on-scroll: hidden state only when JS is running (html.js) */
 @media (prefers-reduced-motion: no-preference) {
