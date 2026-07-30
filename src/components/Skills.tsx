@@ -36,7 +36,7 @@ export default function Skills() {
                 loop
                 playsInline
                 poster="/videos/skills-ambient.jpg"
-                className="ambient-video ambient-parallax w-full h-full object-cover"
+                className="ambient-video ambient-parallax w-full h-full object-cover scale-110"
               >
                 <source src="/videos/skills-ambient.mp4" type="video/mp4" />
               </video>
