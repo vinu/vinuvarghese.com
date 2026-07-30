@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { skillCategories } from '../data/resume';
 import SectionHeading from './SectionHeading';
 
@@ -10,7 +10,16 @@ const nodePos = skillCategories.map((_, i) => {
 
 export default function Skills() {
   const [active, setActive] = useState(0);
+  const [showAmbient, setShowAmbient] = useState(false);
   const current = skillCategories[active];
+
+  useEffect(() => {
+    setShowAmbient(
+      matchMedia('(min-width: 768px)').matches &&
+      !matchMedia('(prefers-reduced-motion: reduce)').matches &&
+      document.documentElement.classList.contains('dark')
+    );
+  }, []);
 
   return (
     <section id="skills" className="scroll-mt-20 py-16 md:py-28 px-6">
@@ -19,6 +28,21 @@ export default function Skills() {
 
         {/* constellation — desktop */}
         <div data-reveal className="hidden md:block relative h-[540px]" role="tablist" aria-label="Skill categories">
+          {showAmbient && (
+            <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/videos/skills-ambient.jpg"
+                className="ambient-video ambient-parallax w-full h-full object-cover"
+              >
+                <source src="/videos/skills-ambient.mp4" type="video/mp4" />
+              </video>
+              <div className="ambient-video-overlay absolute inset-0" />
+            </div>
+          )}
           <svg
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
