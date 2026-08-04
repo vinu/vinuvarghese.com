@@ -25,7 +25,7 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 - `HeroScene.tsx` (React Three Fiber: wireframe cubes + particle network behind the hero) is `React.lazy`-loaded from `Hero.tsx`, so three.js (~230KB gz) sits in its own chunk fetched after hydration and never blocks first paint. It's gated on WebGL support and `prefers-reduced-motion`, watches the `dark` class for theme colors, and pauses its frameloop when the hero is off-screen.
 - Scroll/hover effects (reveal-on-scroll `[data-reveal]`, card tilt `[data-tilt]`, magnetic buttons `[data-magnetic]`) are one vanilla script in `index.astro`, all skipped under `prefers-reduced-motion`. The head script adds an `html.js` class — reveal-hiding CSS only applies under `.js` so no-JS visitors see full content.
 - Tailwind 4 runs via `@tailwindcss/postcss` (`postcss.config.mjs`) — NOT `@tailwindcss/vite`, which breaks against Astro 7's rolldown-based Vite 8, and NOT the deprecated `@astrojs/tailwind`. There is no `tailwind.config` file; all theme tokens live in `src/index.css` under `@theme`.
-- Google Analytics runs in a Web Worker via Partytown integration.
+- Google Analytics (`gtag.js`) loads as a normal async script in `Layout.astro` — not proxied through Partytown. That was tried and quietly dropped 100% of analytics data (Astro's `define:vars` strips the `type="text/partytown"` attribute, and even after fixing that, Partytown's worker sandbox never actually fetched `gtag/js`— confirmed via GA4 Admin showing zero data ever received). Don't reintroduce Partytown for this.
 - `@astrojs/sitemap` generates XML sitemaps at build time.
 - lucide-react 1.x removed brand icons — GitHub/LinkedIn/Stack Overflow SVGs live in `src/components/Icons.tsx`.
 
