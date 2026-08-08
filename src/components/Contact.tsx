@@ -1,20 +1,20 @@
 import React from 'react';
 import { contactLinks } from '../data/resume';
-import SectionHeading from './SectionHeading';
+import PageHeader from './PageHeader';
 
 export default function Contact() {
   return (
-    <section id="contact" className="scroll-mt-20 py-16 md:py-28 px-6">
+    <section id="contact" className="scroll-mt-16 py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="04" title="Contact" />
+        <PageHeader pageNum="500" title="Contact" />
 
-        <p data-reveal className="text-stone-600 dark:text-stone-400 max-w-xl mb-12">
+        <p data-reveal className="font-mono text-xl max-w-xl mb-8">
           Always open to discussing technology, architecture, and new
           opportunities. Reach out on any channel.
         </p>
 
-        <div data-reveal className="border-t border-ink/10 dark:border-white/10">
-          {contactLinks.map((link) => {
+        <div data-reveal className="tt-frame">
+          {contactLinks.map((link, i) => {
             const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto');
             const Row = isExternal ? 'a' : 'div';
             return (
@@ -23,28 +23,20 @@ export default function Contact() {
                 {...(isExternal
                   ? { href: link.href, target: link.href.startsWith('http') ? '_blank' : undefined, rel: 'noopener noreferrer' }
                   : {})}
-                className={`group flex items-baseline gap-4 border-b border-ink/10 dark:border-white/10 py-5 ${
-                  isExternal ? 'cursor-pointer' : ''
-                }`}
+                className={`group flex items-baseline gap-4 px-5 py-4 ${
+                  i > 0 ? 'tt-rule' : ''
+                } ${isExternal ? 'cursor-pointer hover:bg-blue hover:text-white' : ''} transition-colors`}
               >
-                <span className="font-mono text-xs uppercase tracking-wider text-stone-500 dark:text-stone-400 w-32 shrink-0">
+                <span className="font-mono text-lg uppercase tracking-wide text-ink/70 dark:text-white/70 group-hover:text-white w-32 shrink-0">
                   {link.label}
                 </span>
-                <span
-                  className={`truncate ${
-                    isExternal
-                      ? 'group-hover:text-copper dark:group-hover:text-copper-bright transition-colors'
-                      : ''
-                  }`}
-                >
-                  {link.displayText}
-                </span>
+                <span className="font-mono text-lg truncate">{link.displayText}</span>
                 {isExternal && (
                   <span
-                    className="ml-auto font-mono text-copper dark:text-copper-bright opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="ml-auto font-mono text-lg opacity-0 group-hover:opacity-100 transition-opacity"
                     aria-hidden="true"
                   >
-                    ↗
+                    &gt;&gt;
                   </span>
                 )}
               </Row>

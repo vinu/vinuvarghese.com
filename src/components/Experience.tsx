@@ -1,52 +1,45 @@
 import React from 'react';
 import { experiences } from '../data/resume';
-import SectionHeading from './SectionHeading';
+import PageHeader from './PageHeader';
 
 export default function Experience() {
   return (
-    <section id="experience" className="scroll-mt-20 py-16 md:py-28 px-6">
+    <section id="experience" className="scroll-mt-16 py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="02" title="Experience" />
+        <PageHeader pageNum="300" title="Work" />
 
-        <ol className="relative border-l border-ink/10 dark:border-white/10 ml-1">
+        <div className="flex flex-col gap-6">
           {experiences.map((exp, i) => (
-            <li
+            <div
               key={exp.id}
               data-reveal
               style={{ '--reveal-delay': `${(i % 2) * 90}ms` } as React.CSSProperties}
-              className="relative pl-8 md:pl-12 pb-14 last:pb-0"
+              className="tt-frame"
             >
-              <span
-                className="absolute -left-[5.5px] top-9 w-2.5 h-2.5 bg-copper dark:bg-copper-bright"
-                aria-hidden="true"
-              />
-              <div
-                className="glass border border-ink/10 dark:border-white/10 p-6 md:p-8 transition-[border-color,box-shadow] duration-300 hover:border-copper/40 dark:hover:border-copper-bright/40 hover:shadow-[0_16px_48px_-16px_rgba(189,75,18,0.35)] dark:hover:shadow-[0_16px_48px_-16px_rgba(255,140,77,0.25)]"
-              >
-                <p className="font-mono text-xs text-copper dark:text-copper-bright mb-3">
-                  {exp.period} · {exp.duration}
+              <div className="flex items-baseline justify-between bg-blue px-5 py-2">
+                <span className="font-mono text-white text-lg">ITEM {301 + i}</span>
+                <span className="font-mono text-white text-lg">{exp.period}</span>
+              </div>
+              <div className="p-5 md:p-6">
+                <h3 className="font-mono text-2xl md:text-3xl leading-tight">{exp.role}</h3>
+                <p className="font-mono text-lg text-ink/75 dark:text-white/75 mt-1 mb-4">
+                  {exp.company} — {exp.location} · {exp.duration}
                 </p>
-                <h3 className="text-xl md:text-2xl font-bold tracking-tight">{exp.role}</h3>
-                <p className="font-mono text-sm text-stone-500 dark:text-stone-400 mt-1 mb-4">
-                  {exp.company} — {exp.location}
-                </p>
-                <p className="text-stone-600 dark:text-stone-400 leading-relaxed max-w-3xl mb-4">
-                  {exp.description}
-                </p>
-                <ul className="space-y-2 max-w-3xl">
+                <p className="font-mono text-lg leading-relaxed mb-4 max-w-3xl">{exp.description}</p>
+                <ul className="space-y-1.5 max-w-3xl">
                   {exp.achievements.map((achievement) => (
-                    <li key={achievement} className="flex gap-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-                      <span className="text-copper dark:text-copper-bright shrink-0" aria-hidden="true">
-                        ▸
+                    <li key={achievement} className="flex gap-3 font-mono text-base leading-relaxed">
+                      <span className="text-ink dark:text-cyan shrink-0" aria-hidden="true">
+                        &gt;
                       </span>
                       {achievement}
                     </li>
                   ))}
                 </ul>
               </div>
-            </li>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

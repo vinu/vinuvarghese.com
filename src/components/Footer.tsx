@@ -3,21 +3,24 @@ import { navItems } from '../data/resume';
 
 export default function Footer() {
   return (
-    <footer className="py-10 border-t border-ink/10 dark:border-white/10 px-6">
+    <footer className="tt-frame border-x-0 border-b-0 py-8 px-6">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <nav className="flex flex-wrap justify-center gap-6 font-mono text-xs">
-          {navItems.map((item) => (
+        <nav className="flex flex-wrap justify-center gap-3 font-mono text-lg">
+          <a href="#hero" className="px-2.5 py-0.5 border border-ink/30 dark:border-white/30 hover:border-cyan transition-colors">
+            100
+          </a>
+          {navItems.map((item, i) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+              className="px-2.5 py-0.5 border border-ink/30 dark:border-white/30 hover:border-cyan transition-colors"
             >
-              {item.label.toLowerCase()}
+              {(i + 2) * 100}
             </a>
           ))}
         </nav>
-        <p className="font-mono text-xs text-stone-500 dark:text-stone-400">
-          © {new Date().getFullYear()} Vinu Varghese · built with Astro
+        <p className="font-mono text-lg text-ink/70 dark:text-white/70">
+          &copy; {new Date().getFullYear()} Vinu Varghese &middot; built with Astro
         </p>
       </div>
     </footer>

@@ -4,24 +4,28 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="404 - Page Not Found | Vinu Varghese">
   <main class="relative min-h-svh flex flex-col items-center justify-center px-6">
-    <div class="absolute inset-0 blueprint" aria-hidden="true"></div>
-
-    <div class="relative max-w-xl w-full">
-      <p class="font-mono text-xs text-copper dark:text-copper-bright mb-6">
-        <span class="opacity-60">vinu@vinuvarghese.com:~$</span> cat requested-page
-      </p>
-      <h1 class="text-7xl md:text-9xl font-bold tracking-tighter mb-6">
-        404<span class="text-copper dark:text-copper-bright">.</span>
-      </h1>
-      <p class="font-mono text-sm text-stone-500 dark:text-stone-400 mb-10">
-        cat: requested-page: No such file or directory
-      </p>
-      <a
-        href="/"
-        class="inline-block font-mono text-sm border border-ink/20 dark:border-white/20 px-5 py-3 hover:border-copper hover:text-copper dark:hover:border-copper-bright dark:hover:text-copper-bright transition-colors"
-      >
-        $ cd ~
-      </a>
+    <div class="relative max-w-xl w-full tt-frame">
+      <div class="flex items-center justify-between bg-red-chip px-5 py-2">
+        <span class="font-mono text-white text-lg">P404</span>
+        <span class="font-mono text-white text-lg">PAGE NOT FOUND</span>
+      </div>
+      <div class="p-6 md:p-8">
+        <p class="font-mono text-lg text-ink/70 dark:text-white/70 mb-4">
+          vinu@vinuvarghese.com:~$ cat requested-page
+        </p>
+        <h1 class="font-mono text-ink dark:text-yellow text-7xl md:text-9xl leading-[0.9] mb-6" style="transform: scaleY(1.15); transform-origin: bottom;">
+          404
+        </h1>
+        <p class="font-mono text-lg mb-8">
+          cat: requested-page: No such file or directory. This subpage was never broadcast.
+        </p>
+        <a
+          href="/"
+          class="inline-block font-mono text-lg border-2 border-ink text-ink hover:bg-ink hover:text-paper dark:border-cyan dark:text-cyan dark:hover:bg-cyan dark:hover:text-black px-5 py-2.5 transition-colors"
+        >
+          &gt; SELECT cd ~
+        </a>
+      </div>
     </div>
   </main>
 </Layout>

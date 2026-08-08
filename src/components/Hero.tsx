@@ -1,10 +1,8 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
-import { Mail, ArrowDown, TerminalIcon } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, TerminalIcon } from 'lucide-react';
 import TerminalPortfolio from './TerminalPortfolio';
 import { GitHubIcon, LinkedInIcon } from './Icons';
-
-// three.js lives in its own chunk, fetched after hydration
-const HeroScene = lazy(() => import('./HeroScene'));
+import { stats } from '../data/resume';
 
 interface HeroProps {
   profileImage: string;
@@ -18,13 +16,6 @@ const socialLinks = [
 
 export default function Hero({ profileImage }: HeroProps) {
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
-  const [sceneReady, setSceneReady] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const probe = document.createElement('canvas');
-    if (probe.getContext('webgl2') || probe.getContext('webgl')) setSceneReady(true);
-  }, []);
 
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -35,43 +26,49 @@ export default function Hero({ profileImage }: HeroProps) {
   }, [isTerminalOpen]);
 
   return (
-    <section className="relative min-h-svh flex flex-col overflow-hidden">
-      <div className="absolute inset-0 blueprint" aria-hidden="true" />
-      {sceneReady && (
-        <Suspense fallback={null}>
-          <HeroScene />
-        </Suspense>
-      )}
+    <section id="hero" className="relative min-h-svh flex flex-col overflow-hidden pt-16">
+      <div className="tt-scanlines absolute inset-0 pointer-events-none" aria-hidden="true" />
 
       <div className="relative flex-1 flex items-center">
-        <div className="max-w-6xl mx-auto w-full px-6 pt-28 pb-20 grid md:grid-cols-[1fr_auto] gap-14 items-center">
-          <div className="animate-fade-up">
-            <p className="font-mono text-xs sm:text-sm text-copper dark:text-copper-bright mb-8">
-              <span className="opacity-60">vinu@vinuvarghese.com:~$</span> whoami
-              <span className="animate-blink ml-1">▊</span>
-            </p>
+        <div className="max-w-6xl mx-auto w-full px-6 py-16 grid md:grid-cols-[1fr_auto] gap-10 items-center">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="bg-red-chip text-white font-mono text-xl px-2 py-0.5">LIVE</span>
+              <p className="font-mono text-lg text-ink/70 dark:text-white/70">
+                vinu@vinuvarghese.com:~$ whoami<span className="animate-blink ml-1">▊</span>
+              </p>
+            </div>
 
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.95] mb-8">
-              Vinu
+            <h1 className="font-mono text-ink dark:text-yellow text-6xl sm:text-7xl md:text-8xl leading-[0.9] mb-6" style={{ transform: 'scaleY(1.15)', transformOrigin: 'bottom' }}>
+              VINU
               <br />
-              Varghese<span className="text-copper dark:text-copper-bright">.</span>
+              VARGHESE
             </h1>
 
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-stone-500 dark:text-stone-400 mb-4">
-              Technical Architect · est. 2000
+            <p className="font-mono text-xl uppercase tracking-wide mb-4">
+              Technical Architect <span className="text-ink dark:text-cyan">·</span> est. 2000
             </p>
-            <p className="max-w-xl text-lg md:text-xl text-stone-600 dark:text-stone-400 leading-relaxed mb-10">
+            <p className="max-w-xl font-mono text-xl leading-relaxed mb-8">
               Twenty-plus years designing cloud, AI and full-stack systems that
               survive contact with production.
             </p>
 
+            {/* stat ticker, teletext-style */}
+            <div className="tt-frame flex flex-wrap divide-x-2 divide-ink/30 dark:divide-white/30 mb-8 w-fit">
+              {stats.slice(0, 3).map((stat) => (
+                <div key={stat.label} className="px-4 py-2">
+                  <div className="font-mono text-2xl text-ink dark:text-green leading-none">{stat.value}</div>
+                  <div className="font-mono text-sm uppercase tracking-wide">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
               <button
                 onClick={() => setIsTerminalOpen(true)}
-                data-magnetic
-                className="font-mono text-sm border border-ink/20 dark:border-white/20 px-5 py-3 hover:border-copper hover:text-copper dark:hover:border-copper-bright dark:hover:text-copper-bright transition-colors"
+                className="font-mono text-lg bg-transparent border-2 border-ink shadow-[inset_0_0_0_2px_var(--color-paper)] text-ink hover:bg-ink hover:text-paper hover:shadow-none dark:border-cyan dark:shadow-[inset_0_0_0_2px_black] dark:text-cyan dark:hover:bg-cyan dark:hover:text-black dark:hover:shadow-none px-5 py-2.5 transition-colors"
               >
-                $ ./portfolio --interactive
+                &gt; SELECT ./portfolio --interactive
               </button>
               <div className="flex items-center gap-6">
                 {socialLinks.map(({ label, href, Icon }) => (
@@ -82,49 +79,37 @@ export default function Hero({ profileImage }: HeroProps) {
                     rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                     aria-label={label}
                     title={label}
-                    className="text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+                    className="text-ink/70 dark:text-white/70 hover:text-ink dark:hover:text-cyan transition-colors"
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-6 h-6" />
                   </a>
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="hidden md:block animate-fade-up [animation-delay:150ms]">
-            <div className="relative">
-              <div
-                className="absolute -top-3 -right-3 w-full h-full border border-copper dark:border-copper-bright"
-                aria-hidden="true"
-              />
+          <div className="flex md:block justify-center">
+            <div className="relative w-32 h-32 md:w-56 md:h-56">
+              <div className="absolute -top-2 -right-2 w-full h-full border-2 border-ink dark:border-cyan" aria-hidden="true" />
               <img
                 src={profileImage}
                 alt="Vinu Varghese"
-                className="relative w-56 h-56 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-ink/15 dark:border-white/15"
+                className="relative w-full h-full object-cover grayscale contrast-125 border-2 border-ink/30 dark:border-white/30"
               />
             </div>
-            <p className="font-mono text-xs text-stone-500 dark:text-stone-400 mt-4">
-              fig. 01 — the architect
-            </p>
+            <p className="hidden md:block font-mono text-sm mt-3">fig. 01 — the architect</p>
           </div>
         </div>
       </div>
 
-      <a
-        href="#about"
-        className="relative self-center mb-8 font-mono text-xs text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors flex items-center gap-2"
-      >
-        scroll <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-      </a>
-
       {/* Terminal Modal */}
       {isTerminalOpen && (
-        <div className="fixed inset-0 bg-paper/80 dark:bg-night/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/85 flex items-center justify-center z-50 p-4">
           <div className="w-full max-w-4xl">
             <div className="relative">
               <button
                 onClick={() => setIsTerminalOpen(false)}
-                className="absolute -top-8 right-0 font-mono text-xs text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+                className="absolute -top-9 right-0 font-mono text-lg text-white hover:text-cyan transition-colors"
               >
                 [esc] to close
               </button>
@@ -137,11 +122,11 @@ export default function Hero({ profileImage }: HeroProps) {
       {/* Floating Terminal Button */}
       <button
         onClick={() => setIsTerminalOpen(true)}
-        className="fixed bottom-8 right-8 z-30 bg-night dark:bg-paper text-copper-bright dark:text-copper p-4 font-mono shadow-lg hover:-translate-y-0.5 transition-transform group"
+        className="fixed bottom-8 right-8 z-30 bg-cyan text-black p-4 font-mono hover:bg-yellow transition-colors group"
         aria-label="Open terminal"
       >
         <TerminalIcon size={22} />
-        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-night dark:bg-paper text-copper-bright dark:text-copper px-3 py-1 font-mono text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-black text-white px-3 py-1 font-mono text-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
           open terminal
         </span>
       </button>

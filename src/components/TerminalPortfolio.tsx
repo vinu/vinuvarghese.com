@@ -816,24 +816,24 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
   // ── Render ─────────────────────────────────────────────────────────────
 
   return (
-    <div className="font-mono text-stone-300">
+    <div className="font-mono text-white">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-night shadow-[0_32px_80px_-24px_rgba(0,0,0,0.7)] overflow-hidden border border-white/15">
-          {/* Terminal Header */}
-          <div className="border-b border-white/10 px-4 py-2.5 flex items-center">
-            <div className="flex space-x-2">
-              <button
-                onClick={closeHandler}
-                className="w-2.5 h-2.5 bg-copper-bright hover:bg-copper transition-colors"
-                aria-label="Close terminal"
-              />
-              <div className="w-2.5 h-2.5 border border-white/25" />
-              <div className="w-2.5 h-2.5 border border-white/25" />
-            </div>
-            <div className="flex-1 text-center text-stone-500 text-xs">
-              <Terminal className="inline mr-2" size={13} />
+        <div className="bg-black shadow-[0_32px_80px_-24px_rgba(0,0,0,0.7)] overflow-hidden border border-white/15">
+          {/* Terminal Header: page-style bar, matching the blue header strip
+              used on Experience/Skills, rather than a borrowed macOS
+              traffic-light metaphor from the old design world */}
+          <div className="bg-blue px-4 py-2.5 flex items-center justify-between gap-4">
+            <span className="flex items-center gap-2 text-white text-base shrink-0">
+              <Terminal size={14} />
               {isMobile ? 'vinu' : 'vinu@vinuvarghese.com'}: {getPathString(currentPath)}
-            </div>
+            </span>
+            <button
+              onClick={closeHandler}
+              className="text-white hover:text-cyan transition-colors text-base px-2 py-1 -my-1 shrink-0"
+              aria-label="Close terminal"
+            >
+              CLOSE
+            </button>
           </div>
 
           {/* Terminal Body */}
@@ -844,21 +844,21 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
           >
             {history.map((entry, index) => (
               <div key={index} className="mb-1">
-                <pre className="whitespace-pre-wrap font-mono text-sm leading-relaxed">
+                <pre className="whitespace-pre-wrap font-mono text-base leading-relaxed">
                   {entry.content}
                 </pre>
               </div>
             ))}
 
-            <form onSubmit={handleSubmit} className="flex text-sm">
-              <span className="mr-1 shrink-0 text-copper-bright">{prompt}</span>
+            <form onSubmit={handleSubmit} className="flex text-base">
+              <span className="mr-1 shrink-0 text-cyan">{prompt}</span>
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent outline-none no-focus-ring caret-copper-bright"
+                className="flex-1 bg-transparent outline-none no-focus-ring caret-cyan"
                 autoFocus
                 spellCheck={false}
                 autoComplete="off"

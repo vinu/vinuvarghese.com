@@ -1,31 +1,31 @@
 import React from 'react';
 import { professionalSummary, professionalSummary2, stats } from '../data/resume';
-import SectionHeading from './SectionHeading';
+import PageHeader from './PageHeader';
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-20 py-16 md:py-28 px-6">
+    <section id="about" className="scroll-mt-16 py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="01" title="About" />
+        <PageHeader pageNum="200" title="About" />
 
-        <div className="grid md:grid-cols-12 gap-10">
-          <div data-reveal className="md:col-span-7">
-            <p className="text-lg leading-relaxed mb-5">{professionalSummary}</p>
-            <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
+        <div className="grid md:grid-cols-12 gap-8">
+          <div data-reveal className="md:col-span-7 tt-frame p-6 md:p-8">
+            <p className="font-mono text-xl leading-relaxed mb-4">{professionalSummary}</p>
+            <p className="font-mono text-lg leading-relaxed text-ink/75 dark:text-white/75">
               {professionalSummary2}
             </p>
           </div>
 
-          <div className="md:col-span-5 grid grid-cols-2 gap-x-8 gap-y-10 content-start">
+          <div className="md:col-span-5 grid grid-cols-2 divide-x-2 divide-y-2 divide-ink/20 dark:divide-white/20 tt-frame">
             {stats.map((stat, i) => (
               <div
                 key={stat.label}
                 data-reveal
                 style={{ '--reveal-delay': `${i * 90}ms` } as React.CSSProperties}
-                className="border-t-2 border-copper dark:border-copper-bright pt-4"
+                className="bg-paper dark:bg-black p-5"
               >
-                <div className="text-4xl font-bold tracking-tight">{stat.value}</div>
-                <div className="font-mono text-xs text-stone-500 dark:text-stone-400 mt-2 uppercase tracking-wider">
+                <div className="font-mono text-3xl text-ink dark:text-green leading-none">{stat.value}</div>
+                <div className="font-mono text-sm uppercase tracking-wide mt-2 text-ink/70 dark:text-white/70">
                   {stat.label}
                 </div>
               </div>

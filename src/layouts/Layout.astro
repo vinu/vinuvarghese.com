@@ -97,7 +97,7 @@ const jsonLd = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -109,8 +109,8 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta name="author" content="Vinu Varghese" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#100f0d" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -144,7 +144,31 @@ const jsonLd = {
       gtag('config', measurementId);
     </script>
   </head>
-  <body class="bg-paper text-ink dark:bg-night dark:text-stone-200 font-sans antialiased transition-colors duration-300">
+  <body class="bg-paper text-ink dark:bg-black dark:text-white font-sans antialiased transition-colors duration-300">
+    <!--
+      THESIS: A broadcast teletext service, not a scrolling resume — pages
+      keyed by number, refusing the dark-gradient dev-portfolio default.
+      OWN-WORLD: Black ground; fixed broadcast palette (white body, yellow
+      display, cyan signal/active, green secondary, red for alerts and the
+      LIVE tag — broadcast convention, on-air is red); rigid character
+      grid; double-height page headers; block-bordered content cards;
+      VT323 throughout. Light mode: printed-teletext register — body text
+      and hairlines drop to plain ink, but filled chips (page tabs, LIVE,
+      404) keep their broadcast color as small colored stamps on paper,
+      per real teletext-adjacent print convention.
+      STORY: Key or click a 3-digit page (100 Home, 200 About, 300
+      Experience, 400 Skills, 500 Contact) and Vinu's record arrives like a
+      live bulletin — precise, current, built by someone who thinks in
+      systems.
+      FIRST VIEWPORT: Page 100: double-height yellow masthead, red LIVE
+      tag, page-number nav row, green stat ticker, one cyan SELECT-style
+      CTA, portrait visible at all widths.
+      FORM: Challenger "broadcast-programming-teletext-service"
+      (challenger-teletext), chosen by explicit user pick over assigned
+      grounded direction #5 (PCB Silkscreen), seed key bba7f2d5.
+      FINISH: unreviewed and undocumented is unfinished; this build ends
+      with the finish review, the verdict, and DESIGN.md
+    -->
     <slot />
     <Footer />
   </body>

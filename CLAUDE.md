@@ -22,8 +22,8 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 - Pages are static HTML by default. React components hydrate only when marked with a `client:*` directive in Astro templates.
 - Hydrated islands: `Navigation.tsx` and `Hero.tsx` (`client:load`), `Skills.tsx` (`client:visible`). Everything else renders as static HTML.
-- `HeroScene.tsx` (React Three Fiber: wireframe cubes + particle network behind the hero) is `React.lazy`-loaded from `Hero.tsx`, so three.js (~230KB gz) sits in its own chunk fetched after hydration and never blocks first paint. It's gated on WebGL support and `prefers-reduced-motion`, watches the `dark` class for theme colors, and pauses its frameloop when the hero is off-screen.
-- Scroll/hover effects (reveal-on-scroll `[data-reveal]`, card tilt `[data-tilt]`, magnetic buttons `[data-magnetic]`) are one vanilla script in `index.astro`, all skipped under `prefers-reduced-motion`. The head script adds an `html.js` class — reveal-hiding CSS only applies under `.js` so no-JS visitors see full content.
+- The hero no longer runs a three.js scene — `HeroScene.tsx` and the `@react-three/fiber`/`three` dependencies were removed as part of the teletext redesign (a flat broadcast medium has no wireframe/particle background).
+- Reveal-on-scroll (`[data-reveal]`) is one vanilla script in `index.astro`: a `pour-in` clip-path wipe simulating a broadcast page arriving, skipped entirely under `prefers-reduced-motion`. The head script adds an `html.js` class — reveal-hiding CSS only applies under `.js` so no-JS visitors see full content. Card tilt and magnetic buttons (physical/tactile devices from the old design world) were retired in the same redesign.
 - Tailwind 4 runs via `@tailwindcss/postcss` (`postcss.config.mjs`) — NOT `@tailwindcss/vite`, which breaks against Astro 7's rolldown-based Vite 8, and NOT the deprecated `@astrojs/tailwind`. There is no `tailwind.config` file; all theme tokens live in `src/index.css` under `@theme`.
 - Google Analytics (`gtag.js`) loads as a normal async script in `Layout.astro` — not proxied through Partytown. That was tried and quietly dropped 100% of analytics data (Astro's `define:vars` strips the `type="text/partytown"` attribute, and even after fixing that, Partytown's worker sandbox never actually fetched `gtag/js`— confirmed via GA4 Admin showing zero data ever received). Don't reintroduce Partytown for this.
 - `@astrojs/sitemap` generates XML sitemaps at build time.
@@ -33,18 +33,21 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 - `src/pages/` — Astro file-based routing (`index.astro`, `404.astro`)
 - `src/layouts/Layout.astro` — Main layout wrapper (SEO meta, JSON-LD, analytics, fonts, theme init script)
-- `src/components/` — React components (Navigation, Hero, HeroScene, About, Experience, Skills, Contact, Footer, SectionHeading, Icons, TerminalPortfolio)
+- `src/components/` — React components (Navigation, Hero, About, Experience, Skills, Contact, Footer, PageHeader, Icons, TerminalPortfolio)
 - `src/data/resume.ts` — Centralized resume data (experiences, skills, stats, contact links, nav items). Single source of truth used by multiple components.
 - `src/utils/ImageUtils.ts` — Image optimization via Astro's `getImage()` API
-- `src/index.css` — Tailwind 4 `@theme` tokens, keyframes, blueprint grid utility
+- `src/index.css` — Tailwind 4 `@theme` tokens, keyframes, `tt-frame`/`tt-rule`/`tt-scanlines` teletext utilities
 - `public/robots.txt` — Crawler rules and sitemap reference
 
-### Design system ("engineering blueprint")
+### Design system ("broadcast teletext service")
 
-- **Type**: Space Grotesk (display/body) + JetBrains Mono (labels, prompts) via Google Fonts in `Layout.astro`.
-- **Palette** (defined in `@theme` in `src/index.css`): `paper` (warm off-white bg), `night` (warm near-black bg), `ink` (text on paper), `copper` / `copper-bright` (single accent; use `text-copper dark:text-copper-bright`).
-- **Motifs**: numbered sections via `SectionHeading` (`/01 About` … `/04 Contact`), monospace overlines, hairline rules (`border-ink/10 dark:border-white/10`), square corners everywhere (no rounded), `.blueprint` CSS grid texture on hero/404, terminal-prompt flavored copy (`$ ./portfolio --interactive`).
-- Secondary text uses Tailwind `stone-*` grays.
+Full DESIGN.md at the project root documents this system in detail; keep it in sync with this summary.
+
+- **Type**: VT323 (single typeface for everything — both `--font-sans` and `--font-mono`) via Google Fonts in `Layout.astro`. No font pairing.
+- **Palette** (defined in `@theme` in `src/index.css`): `paper`/`ink` (printed-register neutrals, light mode) plus plain `bg-black`/`text-white` (broadcast-register neutrals, dark mode, not tokens) and six functional role colors — `yellow` (display type), `cyan` (signal/active accent), `green` (data/stat values), `red` (alert, reserved), `red-chip` (alert, actually used — LIVE tag, 404 header), `blue` (structural chrome fill: nav pills, Experience/Skills/Terminal header bars, always white-on-blue).
+- **Registers, not just light/dark**: light mode = printed teletext (ink-only text/borders on paper); dark mode = broadcast (full color on black). Filled chips (page-address nav pills, LIVE tag, 404 header) keep their broadcast color in both registers — only running text/borders/stat figures fall back to ink in light mode.
+- **Motifs**: pages addressed by number (`100 HOME` … `500 CONTACT`) via `Navigation.tsx`, not a scrolling section list; double-height page numbers/titles (`transform: scaleY(1.15)`) in `PageHeader.tsx`/`Hero.tsx`/`404.astro`; `tt-frame` (2px border) and `tt-rule` (dashed divider) in place of shadows/cards; zero border-radius everywhere (the one invariant carried over from the prior "Engineering Blueprint" system).
+- Signature component: `Skills.tsx`'s subpage carousel — auto-advances every 6s through numbered subpages 401–406, pauses/shows "HELD" on interaction.
 
 ### Theme system
 

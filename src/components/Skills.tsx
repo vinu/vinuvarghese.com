@@ -1,151 +1,86 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { skillCategories } from '../data/resume';
-import SectionHeading from './SectionHeading';
+import PageHeader from './PageHeader';
 
-// six category nodes on an ellipse around a central detail panel
-const nodePos = skillCategories.map((_, i) => {
-  const angle = (-90 + i * (360 / skillCategories.length)) * (Math.PI / 180);
-  return { x: 50 + 42 * Math.cos(angle), y: 50 + 40 * Math.sin(angle) };
-});
+const AUTO_ADVANCE_MS = 6000;
 
 export default function Skills() {
   const [active, setActive] = useState(0);
-  const [showAmbient, setShowAmbient] = useState(false);
+  const [held, setHeld] = useState(false);
+  const reducedMotionRef = useRef(false);
   const current = skillCategories[active];
 
   useEffect(() => {
-    setShowAmbient(
-      matchMedia('(min-width: 768px)').matches &&
-      !matchMedia('(prefers-reduced-motion: reduce)').matches &&
-      document.documentElement.classList.contains('dark')
-    );
+    reducedMotionRef.current = matchMedia('(prefers-reduced-motion: reduce)').matches;
   }, []);
 
+  useEffect(() => {
+    if (held || reducedMotionRef.current) return;
+    const id = setInterval(() => {
+      setActive((prev) => (prev + 1) % skillCategories.length);
+    }, AUTO_ADVANCE_MS);
+    return () => clearInterval(id);
+  }, [held]);
+
+  const select = (i: number) => {
+    setActive(i);
+    setHeld(true);
+  };
+
   return (
-    <section id="skills" className="scroll-mt-20 py-16 md:py-28 px-6">
+    <section id="skills" className="scroll-mt-16 py-16 md:py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <SectionHeading index="03" title="Skills" />
+        <PageHeader pageNum="400" title="Skills" />
 
-        {/* constellation — desktop */}
-        <div data-reveal className="hidden md:block relative h-[540px]" role="tablist" aria-label="Skill categories">
-          {showAmbient && (
-            <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                poster="/videos/skills-ambient.jpg"
-                className="ambient-video ambient-parallax w-full h-full object-cover scale-110"
-              >
-                <source src="/videos/skills-ambient.mp4" type="video/mp4" />
-              </video>
-              <div className="ambient-video-overlay absolute inset-0" />
-            </div>
-          )}
-          <svg
-            viewBox="0 0 100 100"
-            preserveAspectRatio="none"
-            className="absolute inset-0 w-full h-full"
-            aria-hidden="true"
-          >
-            {nodePos.map((pos, i) => (
-              <line
-                key={skillCategories[i].id}
-                x1="50"
-                y1="50"
-                x2={pos.x}
-                y2={pos.y}
-                vectorEffect="non-scaling-stroke"
-                className={
-                  i === active
-                    ? 'stroke-copper dark:stroke-copper-bright'
-                    : 'stroke-ink/15 dark:stroke-white/15'
-                }
-                strokeWidth="1"
-                strokeDasharray={i === active ? 'none' : '4 4'}
-              />
-            ))}
-          </svg>
-
-          {skillCategories.map((category, i) => (
-            <div
-              key={category.id}
-              className="absolute -translate-x-1/2 -translate-y-1/2"
-              style={{ left: `${nodePos[i].x}%`, top: `${nodePos[i].y}%` }}
-            >
+        <div data-reveal className="tt-frame">
+          {/* subpage bar */}
+          <div className="flex flex-wrap items-center gap-2 bg-blue px-4 py-3">
+            <span className="font-mono text-white text-lg mr-2">P400</span>
+            {skillCategories.map((cat, i) => (
               <button
-                role="tab"
-                aria-selected={i === active}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-                onClick={() => setActive(i)}
-                style={{ animation: `float-y ${5 + (i % 3)}s ease-in-out ${i * 0.7}s infinite` }}
-                className={`motion-reduce:animate-none font-mono text-xs px-4 py-2.5 border transition-colors whitespace-nowrap ${
-                  i === active
-                    ? 'border-copper text-copper dark:border-copper-bright dark:text-copper-bright bg-paper dark:bg-night'
-                    : 'border-ink/20 dark:border-white/20 bg-paper dark:bg-night text-stone-600 dark:text-stone-400 hover:border-copper/50 dark:hover:border-copper-bright/50'
+                key={cat.id}
+                onClick={() => select(i)}
+                aria-pressed={i === active}
+                className={`font-mono text-lg px-2.5 py-0.5 border transition-colors ${
+                  i === active ? 'bg-cyan text-black border-cyan' : 'bg-transparent text-white border-white/40 hover:border-white'
                 }`}
               >
-                <span className="text-copper dark:text-copper-bright mr-2">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                {category.title}
+                {401 + i}
               </button>
-            </div>
-          ))}
+            ))}
+            <button
+              onClick={() => setHeld((h) => !h)}
+              className={`font-mono text-lg px-2.5 py-0.5 border ml-auto transition-colors ${
+                held ? 'bg-yellow text-black border-yellow' : 'bg-transparent text-white border-white/40 hover:border-white'
+              }`}
+              aria-pressed={held}
+            >
+              {held ? 'HELD' : 'HOLD'}
+            </button>
+          </div>
 
-          {/* center detail panel */}
-          <div
-            role="tabpanel"
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 glass border border-ink/15 dark:border-white/15 p-6"
-          >
-            <p className="font-mono text-xs text-copper dark:text-copper-bright mb-4">
-              {String(active + 1).padStart(2, '0')} / {String(skillCategories.length).padStart(2, '0')}
-            </p>
-            <h3 className="font-bold tracking-tight mb-4">{current.title}</h3>
-            <ul className="space-y-2">
+          {/* active subpage content */}
+          <div className="p-6 md:p-8 min-h-[20rem]">
+            <div className="flex items-baseline justify-between mb-6">
+              <h3 className="font-mono text-2xl md:text-3xl">{current.title}</h3>
+              <span className="font-mono text-lg text-ink/70 dark:text-white/70">
+                {401 + active} / {400 + skillCategories.length}
+              </span>
+            </div>
+            <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2">
               {current.skills.map((skill) => (
-                <li key={skill} className="font-mono text-sm text-stone-600 dark:text-stone-400">
-                  <span className="text-copper dark:text-copper-bright mr-2" aria-hidden="true">
-                    +
-                  </span>
+                <li key={skill} className="font-mono text-lg flex gap-3">
+                  <span className="text-ink dark:text-green shrink-0" aria-hidden="true">+</span>
                   {skill}
                 </li>
               ))}
             </ul>
           </div>
-          <p className="absolute bottom-0 left-0 font-mono text-xs text-stone-500 dark:text-stone-400">
-            fig. 03 — technology constellation
-          </p>
         </div>
 
-        {/* full index — always visible so nothing hides behind interaction */}
-        <p data-reveal className="hidden md:block font-mono text-xs text-stone-500 dark:text-stone-400 mt-4 mb-6">
-          $ ls -R ~/skills <span className="opacity-60">— full index</span>
+        <p data-reveal className="font-mono text-base text-ink/70 dark:text-white/70 mt-4">
+          {held ? 'subpage held — press a number to browse' : `auto-advancing every ${AUTO_ADVANCE_MS / 1000}s — press HOLD to stop`}
         </p>
-        <div data-reveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-ink/10 dark:bg-white/10 border border-ink/10 dark:border-white/10">
-          {skillCategories.map((category, i) => (
-            <div key={category.id} className="bg-paper dark:bg-night p-6 md:p-8">
-              <div className="flex items-baseline justify-between mb-6">
-                <h3 className="font-bold tracking-tight">{category.title}</h3>
-                <span className="font-mono text-xs text-copper dark:text-copper-bright">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-              </div>
-              <ul className="space-y-2">
-                {category.skills.map((skill) => (
-                  <li key={skill} className="font-mono text-sm text-stone-600 dark:text-stone-400">
-                    <span className="text-copper dark:text-copper-bright mr-2" aria-hidden="true">
-                      +
-                    </span>
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
