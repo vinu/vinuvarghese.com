@@ -816,23 +816,21 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
   // ── Render ─────────────────────────────────────────────────────────────
 
   return (
-    <div className="font-mono text-white">
+    <div className="font-mono text-void">
       <div className="max-w-4xl mx-auto">
-        <div className="bg-black shadow-[0_32px_80px_-24px_rgba(0,0,0,0.7)] overflow-hidden border border-white/15">
-          {/* Terminal Header: page-style bar, matching the blue header strip
-              used on Experience/Skills, rather than a borrowed macOS
-              traffic-light metaphor from the old design world */}
-          <div className="bg-blue px-4 py-2.5 flex items-center justify-between gap-4">
-            <span className="flex items-center gap-2 text-white text-base shrink-0">
+        <div className="notch bg-carbon shadow-[0_32px_80px_-24px_rgba(0,0,0,0.7)] overflow-hidden border border-void/15">
+          {/* Terminal header: node-bar matching the Experience/Skills chrome */}
+          <div className="bg-void/[0.04] border-b border-amber-bright/25 px-4 py-2.5 flex items-center justify-between gap-4">
+            <span className="flex items-center gap-2 text-void/80 text-sm shrink-0 font-mono uppercase tracking-wide">
               <Terminal size={14} />
               {isMobile ? 'vinu' : 'vinu@vinuvarghese.com'}: {getPathString(currentPath)}
             </span>
             <button
               onClick={closeHandler}
-              className="text-white hover:text-cyan transition-colors text-base px-2 py-1 -my-1 shrink-0"
+              className="text-void/80 hover:text-amber-bright transition-colors text-xs uppercase tracking-wide px-2 py-1 -my-1 shrink-0"
               aria-label="Close terminal"
             >
-              CLOSE
+              Close
             </button>
           </div>
 
@@ -851,14 +849,14 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
             ))}
 
             <form onSubmit={handleSubmit} className="flex text-base">
-              <span className="mr-1 shrink-0 text-cyan">{prompt}</span>
+              <span className="mr-1 shrink-0 text-amber-bright">{prompt}</span>
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent outline-none no-focus-ring caret-cyan"
+                className="flex-1 bg-transparent outline-none no-focus-ring caret-amber-bright"
                 autoFocus
                 spellCheck={false}
                 autoComplete="off"

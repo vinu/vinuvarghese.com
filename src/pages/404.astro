@@ -2,28 +2,28 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="404 - Page Not Found | Vinu Varghese">
+<Layout title="404 - Node Not Found | Vinu Varghese">
   <main class="relative min-h-svh flex flex-col items-center justify-center px-6">
-    <div class="relative max-w-xl w-full tt-frame">
-      <div class="flex items-center justify-between bg-red-chip px-5 py-2">
-        <span class="font-mono text-white text-lg">P404</span>
-        <span class="font-mono text-white text-lg">PAGE NOT FOUND</span>
+    <div class="relative max-w-xl w-full notch border border-graphite/12 dark:border-void/12 bg-graphite/[0.02] dark:bg-void/[0.03]">
+      <div class="flex items-center justify-between bg-amber-deep dark:bg-amber-bright px-5 py-2.5">
+        <span class="font-mono text-void dark:text-carbon text-xs uppercase tracking-wide">Node error</span>
+        <span class="font-mono text-void dark:text-carbon text-xs uppercase tracking-wide">Connection missing</span>
       </div>
       <div class="p-6 md:p-8">
-        <p class="font-mono text-lg text-ink/70 dark:text-white/70 mb-4">
-          vinu@vinuvarghese.com:~$ cat requested-page
+        <p class="font-mono text-xs uppercase tracking-wide text-graphite/55 dark:text-ash mb-4">
+          vinu@vinuvarghese.com:~$ trace requested-node
         </p>
-        <h1 class="font-mono text-ink dark:text-yellow text-7xl md:text-9xl leading-[0.9] mb-6" style="transform: scaleY(1.15); transform-origin: bottom;">
+        <h1 class="font-display font-extrabold text-8xl md:text-9xl leading-none tracking-tight mb-6">
           404
         </h1>
-        <p class="font-mono text-lg mb-8">
-          cat: requested-page: No such file or directory. This subpage was never broadcast.
+        <p class="font-sans text-graphite/75 dark:text-ash mb-8">
+          No structural connection resolves to this path. The node was never added to the lattice.
         </p>
         <a
           href="/"
-          class="inline-block font-mono text-lg border-2 border-ink text-ink hover:bg-ink hover:text-paper dark:border-cyan dark:text-cyan dark:hover:bg-cyan dark:hover:text-black px-5 py-2.5 transition-colors"
+          class="notch inline-block bg-amber-deep dark:bg-amber-bright text-void dark:text-carbon font-mono text-sm uppercase tracking-wide px-6 py-3 hover:opacity-90 transition-opacity"
         >
-          &gt; SELECT cd ~
+          Return to structure <span aria-hidden="true">+</span>
         </a>
       </div>
     </div>

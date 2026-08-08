@@ -1,210 +1,169 @@
 ---
 name: Vinu Varghese — Portfolio
-description: A broadcast teletext service (CEEFAX-register) portfolio — numbered pages, a fixed six-color broadcast palette, VT323 throughout, zero border-radius.
+description: A tensegrity structure rendered live in WebGL — carbon rods, amber tension cables, joint nodes, and a cut-corner engineering-signage system in a dark or daylight studio.
 colors:
-  paper: "#f7f5f0"
-  ink: "#14120f"
-  broadcast-black: "#000000"
-  broadcast-white: "#ffffff"
-  yellow: "#ffff00"
-  cyan: "#00ffff"
-  green: "#00ff00"
-  red: "#ff0000"
-  red-chip: "#b30000"
-  blue: "#12206b"
+  carbon: "#0d0d0f"
+  void: "#f7f7f8"
+  ash: "#9a9a9c"
+  concrete: "#e6e3df"
+  graphite: "#1c1c1e"
+  amber-deep: "#8a4a05"
+  amber-bright: "#f59e0b"
 typography:
   display:
-    fontFamily: "VT323, ui-monospace, SFMono-Regular, Menlo, monospace"
-    fontSize: "clamp(3.75rem, 9vw, 8rem)"
-    fontWeight: 400
-    lineHeight: 0.9
-    letterSpacing: "normal"
+    fontFamily: "Big Shoulders Display, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(3.75rem, 9vw, 6rem)"
+    fontWeight: 800
+    lineHeight: 0.92
+    letterSpacing: "-0.01em"
+    textTransform: "uppercase"
   headline:
-    fontFamily: "VT323, ui-monospace, SFMono-Regular, Menlo, monospace"
-    fontSize: "clamp(2.25rem, 5vw, 3rem)"
-    fontWeight: 400
+    fontFamily: "Big Shoulders Display, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.875rem, 4vw, 3rem)"
+    fontWeight: 700
     lineHeight: 1
-    letterSpacing: "normal"
-  title:
-    fontFamily: "VT323, ui-monospace, SFMono-Regular, Menlo, monospace"
-    fontSize: "clamp(1.5rem, 3vw, 1.875rem)"
-    fontWeight: 400
-    lineHeight: 1.2
-    letterSpacing: "normal"
+    letterSpacing: "-0.01em"
+    textTransform: "uppercase"
   body:
-    fontFamily: "VT323, ui-monospace, SFMono-Regular, Menlo, monospace"
-    fontSize: "1.125rem"
+    fontFamily: "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.6
   label:
-    fontFamily: "VT323, ui-monospace, SFMono-Regular, Menlo, monospace"
-    fontSize: "1rem"
+    fontFamily: "IBM Plex Mono, ui-monospace, SFMono-Regular, Menlo, monospace"
+    fontSize: "0.75rem"
     fontWeight: 400
-    letterSpacing: "0.02em"
+    letterSpacing: "0.05em"
 rounded:
   none: "0px"
+  full: "999px"
 spacing:
   section-y: "4rem"
-  section-y-md: "6rem"
-  frame-p: "1.5rem"
-  frame-p-md: "2rem"
-  gutter-x: "1.5rem"
+  section-y-md: "7rem"
 components:
   button-primary:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.amber-deep}"
+    textColor: "{colors.void}"
     rounded: "{rounded.none}"
-    padding: "10px 20px"
+    padding: "12px 24px"
   button-primary-hover:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
-  nav-chip:
-    backgroundColor: "{colors.blue}"
-    textColor: "{colors.broadcast-white}"
+    backgroundColor: "{colors.amber-deep}"
+  card:
+    backgroundColor: "transparent"
     rounded: "{rounded.none}"
-    padding: "6px 12px"
-  nav-chip-active:
-    backgroundColor: "{colors.cyan}"
-    textColor: "{colors.broadcast-black}"
-  chip-alert:
-    backgroundColor: "{colors.red-chip}"
-    textColor: "{colors.broadcast-white}"
-    rounded: "{rounded.none}"
-    padding: "2px 8px"
+    padding: "24px"
 ---
 
 # Design System: Vinu Varghese — Portfolio
 
 ## Overview
 
-**Creative North Star: "The Broadcast Teletext Service"**
+**Creative North Star: "The Tensegrity Column"**
 
-This is a broadcast teletext service, not a scrolling resume — a CEEFAX/Ceefax-register system where content lives on numbered pages (100 Home, 200 About, 300 Work, 400 Skills, 500 Contact) and arrives like a live bulletin rather than unrolling as a webpage. The grammar is entirely broadcast-native: a rigid character grid, block-bordered content units, double-height headers, and a fixed six-color role palette (yellow/cyan/green/red/red-chip/blue) applied by function, never by decoration. One typeface — VT323 — carries every line of copy, matching the single-glyph-set character grid of real teletext hardware rather than pairing a display face against a body face.
+The portfolio is built like a tensegrity structure: rigid carbon rods that never touch, held in shape by taut amber cables, standing because of balanced opposing forces rather than a stacked frame. That's the literal 3D object anchoring the hero — a live-rendered WebGL lattice, not a photo or an illustration — and it's also the site's governing metaphor: twenty years of breadth across cloud, AI, and full-stack work holds together the same way, no single point of failure.
 
-The system runs two registers, not a simple light/dark toggle. Dark mode is the **broadcast register**: pure black ground, white body text, and the full role palette in play. Light mode is the **printed-teletext register**: body text and hairlines fall back to plain ink on paper, as if the page had been printed from the broadcast signal — but small filled chips (page-address nav pills, the LIVE tag, the 404 page header) keep their broadcast color as stamped badges on paper in both registers, per real teletext-adjacent print convention. That asymmetry is deliberate and load-bearing, not an inconsistency to fix.
+The system runs two registers. Dark is the **night studio**: carbon-black ground, void-white text, the lattice lit dramatically against near-black. Light is the **daylight studio**: poured-concrete ground, graphite text, the same lattice rendered in dark line-work against a warm neutral field. Both registers share one accent — Signal Amber — and the same cut-corner, engineering-signage vocabulary.
 
-Explicit anti-reference: this is not the "/01 About"-numbered engineering-blueprint identity that preceded it, and it is not a generic dark-gradient developer portfolio. No copper accent, no blueprint grid, no Space Grotesk/JetBrains Mono pairing carries forward — the only survivor from that world is the zero-border-radius invariant and a shared seriousness about engineering credibility.
+Explicit anti-reference: this replaces a prior "Broadcast Teletext Service" identity (flat, monospace-only, numbered pages) that didn't read as modern or dimensional. It also explicitly refuses the generic AI-portfolio default — a rotating abstract glass blob on a dark gradient with floating glassmorphic cards. The lattice is dimensional and animated, but it's a real, specific, procedurally-built structure tied to the product's own metaphor, not decorative motion for its own sake.
 
 **Key Characteristics:**
-- Content is addressed as numbered pages (100/200/300/400/500), keyed and clicked like a real teletext service, not scrolled as anonymous sections
-- One typeface (VT323) for all type, in both roles — no display/body pairing
-- A fixed six-color broadcast palette (yellow, cyan, green, red, red-chip, blue) applied strictly by function
-- Two registers: full-color broadcast (dark) vs. ink-on-paper printed (light) — with filled chips exempt from the light-mode fallback
-- Double-height page numbers and titles (`scaleY(1.15)`), a real teletext typographic convention
-- Depth reads through 2px solid `tt-frame` borders and dashed `tt-rule` dividers, not ambient shadows
-- Zero border-radius everywhere — the one invariant carried over from the prior "Engineering Blueprint" system
+- A live WebGL rod-and-cable lattice (rigid carbon struts, tensioned amber cables, dark joint-node spheres at every intersection, a soft ground contact shadow) anchors the hero, rotating slowly with a subtle breathing scale pulse
+- Display type is a condensed industrial grotesk, always set in caps — engineering-signage voice, not default-case headings
+- One accent color (Signal Amber) carries the whole system, split into two mode-safe variants — amber has no single bare value that's safe in both registers, so every use picks the correct one
+- A cut-corner clip-path silhouette (`.notch`) replaces the traditional rounded-corner or square-corner language on buttons, cards, and chips
+- A dot-plus-rule "leader-line" annotation motif is the recurring engineering-callout idiom for stats, timestamps, and metadata — real data only, never invented figures
+- Primary calls to action carry a trailing "+" glyph, a device borrowed directly from the world's quality-bar reference
 
 ## Colors
 
-Ten roles across two registers: two neutrals per register (paper/ink for print, plain black/white for broadcast) plus six functional broadcast hues used identically in both.
+Five neutrals across two registers plus one accent, split into two mode-safe variants.
 
 ### Primary
-- **Signal Cyan** (`#00ffff` — `--color-cyan`): The system's primary interactive/active accent. Used for the active page-address chip, text selection, the focus ring (`:focus-visible`), link/icon/button hover states, the primary CTA's border and hover-fill in both registers, and the terminal prompt glyph. This is the closest analogue to the old system's single-accent rule, but per real teletext convention it is one of several role colors, not the only one.
-
-### Secondary
-- **Display Yellow** (`#ffff00` — `--color-yellow`): Reserved for double-height display type — the hero masthead ("VINU VARGHESE"), every `PageHeader` page-number + title pair, and the 404 page's "404" digits. Falls back to plain ink in light-mode running text (it is text color, not a chip).
-- **Data Green** (`#00ff00` — `--color-green`): Reserved for numeric/data values — stat-tile figures (hero ticker, About stat quad) and the skill-list `+` marker. Also falls back to ink in light mode; these are data readouts, not chips.
-- **Chrome Blue** (`#12206b` — `--color-blue`): Structural chrome fill, always paired with white text, always broadcast-colored regardless of register. Fills the inactive page-address nav chips, the Experience "ITEM 30N" header bar, the Skills subpage bar, the Terminal window's header bar, and the Contact row hover state.
-
-### Neutral
-- **Printed Paper** (`#f7f5f0` — `--color-paper`): Light-mode (printed-register) background.
-- **Broadcast Ink** (`#14120f` — `--color-ink`): Light-mode text and the base for every `tt-frame`/`tt-rule` border and hairline.
-- **Broadcast Black** (`#000000`, plain `bg-black`, no custom property): Dark-mode (broadcast-register) ground. Deliberately not a token — real teletext black is just black.
-- **Broadcast White** (`#ffffff`, plain `text-white`, no custom property): Dark-mode text and border color, mirroring Broadcast Black.
-
-### Alert (used sparingly; not yet fully exercised)
-- **Alert Red** (`#ff0000` — `--color-red`): The role color for alerts per the system's own direction contract ("red for alerts and the LIVE tag — broadcast convention, on-air is red"). Not yet applied directly anywhere in the shipped build — every current "alert" surface uses Chip Red instead.
-- **Chip Red** (`#b30000` — `--color-red-chip`): A darker variant of Alert Red, chosen because it holds reliable white-on-fill contrast at small chip sizes. This is what's actually shipped: the hero's "LIVE" badge and the 404 page's "P404 / PAGE NOT FOUND" header bar.
+- **Signal Amber, Deep** (`#8a4a05` — `--color-amber-deep`): The light-register value — used for text, borders, focus rings, and fills in light mode. Verified ~5.5:1 against Concrete as text, clears the 3:1 non-text bar comfortably as a border/focus ring too.
+- **Signal Amber, Bright** (`#f59e0b` — `--color-amber-bright`): The dark-register value — same roles, dark mode. Verified ~9.6:1 against Carbon.
 
 ### Named Rules
-**The Chip Exception Rule.** Filled chips with a solid background and white/black text — page-address nav pills, the LIVE tag, the 404 page header — keep their broadcast color in both the printed and broadcast register. Everything else (running text, hairline borders, stat/data figures) falls back to plain ink-on-paper in light mode via a `dark:` pairing. A color's use as a small stamped badge is what exempts it from the light-mode fallback; a color used as running text or a resting number never is.
+**The Mode-Safe Everything Rule.** Amber is an inherently bright hue: the bright variant fails contrast on light backgrounds (as low as 1.7:1 on Concrete, failing even the 3:1 non-text bar), and the deep variant is too dark to read well against Carbon. Unlike the prior "Tension Red" system — which had one bare value safe enough for fills/borders/large-text in both registers — amber has **no safe bare value**. Every single use (text, border, focus ring, fill) picks `amber-deep` in light mode and `amber-bright` in dark mode; there is no shortcut class. Fills pair `amber-deep` with void text in light mode and `amber-bright` with carbon text in dark mode (bright amber fails contrast against light/void text).
 
-**The Six-Role Palette Rule.** Only six functional hues exist system-wide — yellow (display), cyan (signal/active), green (data), red (alert, reserved), red-chip (alert, shipped), blue (structural chrome) — plus the register-appropriate neutral pair. No color is introduced outside these roles; a new chip or accent must be justified against this list, not invented ad hoc.
+### Neutral
+- **Carbon** (`#0d0d0f` — `--color-carbon`): Night-studio (dark mode) ground.
+- **Void** (`#f7f7f8` — `--color-void`): Night-studio text and border base.
+- **Ash** (`#9a9a9c` — `--color-ash`): Night-studio secondary/caption text (~7.2:1 on Carbon).
+- **Concrete** (`#e6e3df` — `--color-concrete`): Daylight-studio (light mode) ground.
+- **Graphite** (`#1c1c1e` — `--color-graphite`): Daylight-studio text and border base.
 
 ## Typography
 
-**Display/Body/Label Font:** VT323 (with `ui-monospace, SFMono-Regular, Menlo, monospace` fallback) — the only typeface in the system; `--font-sans` and `--font-mono` both resolve to it.
+**Display/Headline Font:** Big Shoulders Display (condensed industrial grotesk)
+**Body Font:** IBM Plex Sans
+**Label/Mono Font:** IBM Plex Mono
 
-**Character:** A single bitmap-derived broadcast face carries every register in the system — masthead, body copy, labels, terminal chrome. This is a deliberate, cited departure from a display/body font pairing: real teletext hardware renders one character set at one grid resolution, and the system matches that constraint rather than defaulting to a training-data-typical two-font pairing.
+**Character:** A real three-tier pairing, not a single face doing every job. Big Shoulders Display carries the hero name and every section heading — condensed, heavy, built for signage rather than screens, and always set in caps. IBM Plex Sans carries paragraph prose, chosen for the same engineering register as the mono face without sacrificing long-form legibility. IBM Plex Mono carries anything that reads as data, label, or system chrome.
 
 ### Hierarchy
-- **Display** (400, `clamp(3.75rem, 9vw, 8rem)` / text-6xl→text-8xl, leading-[0.9], `scaleY(1.15)`): Hero masthead only ("VINU / VARGHESE") and the 404 page's "404" digits (text-7xl→text-9xl at the same treatment).
-- **Headline** (400, `clamp(2.25rem, 5vw, 3rem)` / text-4xl→text-5xl, leading-none, `scaleY(1.15)`): Every `PageHeader` page-number + title pair (200 About, 300 Work, 400 Skills, 500 Contact).
-- **Title** (400, text-2xl→text-3xl): Experience role headings, Skills active-subpage title.
-- **Body** (400, text-lg→text-xl, leading-relaxed): Paragraph copy throughout.
-- **Label** (400, text-sm→text-lg, uppercase or tracked where used): Nav page chips, stat captions, terminal chrome, contact-row labels, prompt copy (`vinu@vinuvarghese.com:~$ whoami`).
+- **Display** (800, `clamp(3.75rem, 9vw, 6rem)`, line-height 0.92, uppercase): Hero name only.
+- **Headline** (700, `clamp(1.875rem, 4vw, 3rem)`, line-height 1, uppercase): Section headings, Experience role titles, Skills node titles.
+- **Body** (400, 1rem, line-height 1.6): Paragraph copy.
+- **Label** (400, 0.75rem, tracking 0.05em, often uppercase): Nav links, stat captions, terminal chrome, contact-row labels, leader-line annotations.
 
 ### Named Rules
-**The One Glyph Rule.** Every line of type on the site — hero name, body prose, nav chips, terminal output — renders in VT323. No second family is introduced for contrast or hierarchy; hierarchy comes entirely from size, the double-height transform, and color role.
-
-**The Double-Height Rule.** Page numbers and titles apply `transform: scaleY(1.15); transform-origin: bottom;` — the hero masthead, every `PageHeader`, and the 404 digit block. This mimics real teletext's double-height row convention and is reserved for that exact role; it does not apply to body text, labels, or card titles.
+**The Signage Caps Rule.** Every Big Shoulders Display heading is set in uppercase via CSS `text-transform`, never relying on the source string's casing. This matches the quality-bar reference's engineering-signage voice; a mixed-case display heading is a regression, not a style choice.
 
 ## Layout
 
-Single-column, long-scroll page capped at `max-w-6xl` and centered with `px-6` gutters, addressed as five numbered pages (100/200/300/400/500) rather than an unlabeled section list. Section rhythm steps from `py-16` (mobile, 4rem) to `py-24` (`md:`, 6rem). About uses a 12-column grid (7/5 split: a `tt-frame` prose panel vs. a 2×2 `tt-frame` stat quad with internal dividers). Experience is a flat vertical stack of independent `tt-frame` items, each with its own blue "ITEM 30N" header bar — not a rail/timeline. Skills is a single `tt-frame` containing a blue subpage-nav bar plus a content pane (the subpage-carousel device; see Components). Contact is one `tt-frame` of stacked address-style rows separated by dashed `tt-rule` dividers. The fixed nav bar is transparent until scrolled past 50px, then gains a `tt-frame` bottom border; page-address chips (100 HOME … 500 CONTACT) replace the prior system's `/01 About` numbered-section motif as the primary navigational structure.
+Single-column, long-scroll page capped at `max-w-6xl`, centered with `px-6` gutters. Section rhythm steps from `py-16` (mobile) to `py-28` (`md:`). The Hero breaks to a two-column grid (`md:grid-cols-[1.1fr_0.9fr]`) pairing text/CTA/stats against the 3D lattice; About splits `md:grid-cols-12` (7/5) between prose and the stat annotation list; Experience runs a vertical timeline rail with joint-dot markers echoing the lattice's own joints.
 
 ## Elevation & Depth
 
-Flat and bordered by default. Depth reads through 2px solid `tt-frame` borders (ink light / white dark) and 1px dashed `tt-rule` dividers, never through ambient drop shadows on content. The only genuine `box-shadow` values in the system are: the terminal modal panel's detach shadow (`shadow-[0_32px_80px_-24px_rgba(0,0,0,0.7)]`), separating it from the page behind the scrim; and the hero's primary CTA, which uses an *inset* shadow (`shadow-[inset_0_0_0_2px_var(--color-paper)]` light / `black` dark) sitting just inside its 2px border to draw a groove-like double-border "SELECT" button treatment — a signature detail, not a general button rule (the 404 page's CTA uses a plain single border with no inset).
-
-**Not yet reached:** the world's own reference materials (Ceefax-style catalog imagery) use dither and halftone as native rendering devices — coarse dot patterns standing in for continuous tone on broadcast-resolution displays. The current build doesn't use either; the hero portrait ships as a plain grayscale photograph (`grayscale contrast-125`) rather than a halftone or dithered treatment. This is a legitimate gap for future work, not a rule against the device — dither/halftone belong to this world and should be picked up, not avoided.
+Mostly flat — no drop shadows on 2D UI, hairline borders (`border-graphite/12` / `border-void/12`) do the structural separation work instead. Depth lives almost entirely in the one place it should: the 3D lattice itself, which carries real geometric depth (cylindrical rods and cables, spherical joint nodes) plus a soft `ContactShadows` ground plane grounding it in the studio space. The terminal modal is the one 2D element with a real shadow (`0 32px 80px -24px rgba(0,0,0,0.7)`), since it needs to read as detached from the page behind it.
 
 ### Named Rules
-**The Bordered-Not-Shadowed Rule.** Structural depth is a border or a dashed rule, never a resting shadow. A shadow appearing on a piece of content at rest (not a modal, not an inset CTA groove) is a bug, not a variant.
+**The Depth Belongs to the Structure Rule.** 2D chrome stays flat and border-defined; dimensional shadow and volume are reserved for the lattice, which is the one place the product's "dimensional" brief is meant to be felt directly rather than simulated with CSS.
 
 ## Shapes
 
-Zero border-radius everywhere — no `rounded-*` utility appears anywhere in the codebase. This is the one invariant carried forward unchanged from the prior "Engineering Blueprint" system. Borders are always 2px solid (`tt-frame`) or 1px dashed (`tt-rule`), in ink (light) or white (dark), and do all the framing/separation work a card-elevation system would do elsewhere: bordering the hero stat ticker, the About panels, every Experience item, the Skills carousel, the Contact block, the nav bar on scroll, the mobile menu panel, the theme dropdown, and the terminal window.
+A cut-corner silhouette (`.notch` / `.notch-sm`, `clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px)` and an 8px variant) is the system's recurring angular signature — buttons, the terminal panel, content cards, the 404 frame. Two deliberate, scoped exceptions to that angular language: the leader-line's hollow dot marker and the 3D lattice's joint-node spheres are fully circular (`rounded-full`, `border-radius: 999px`) — a joint in a structural system is round in reality, and the exception is intentional, not drift.
 
 ## Components
 
-Every content unit sits inside a rigid `tt-frame` border, styled to read as a broadcast page module rather than a soft card.
-
 ### Buttons
-- **Shape:** Square corners, always a visible 2px border — never borderless, never filled at rest except the two dedicated filled variants below.
-- **Primary CTA ("SELECT" style, hero only):** Transparent background, `border-2 border-ink` (light) / `border-cyan` (dark), plus an inset 2px paper/black shadow drawing a groove just inside the border. Hover fills solid ink/cyan with inverted text and drops the inset shadow.
-- **Secondary CTA (404 "SELECT cd ~"):** Same border-and-invert hover logic, without the inset groove — the simpler of the two treatments.
-- **Floating action (terminal launcher, back-to-top):** Solid filled square icon buttons (`bg-cyan text-black`, or bordered ink/white), fixed bottom-right, stacked above each other.
+- **Shape:** `.notch` cut corner, no other rounding.
+- **Primary:** Solid Signal Amber fill (`amber-deep` light mode / `amber-bright` dark mode) paired with mode-matched text (`void` light / `carbon` dark — bright amber fails contrast against void text), `px-6 py-3`, a trailing `+` glyph (`Explore Systems +`, `Return to structure +`) — the plus device is reserved for primary calls to action, not applied to secondary/utility controls.
+- **Hover:** `opacity-90`, not a color shift (amber has no third shade to shift to without breaking the mode-safe pairing).
+- **Secondary/Utility (theme toggle, Skills node tabs, back-to-top):** Outline or ghost, no fill, no "+" glyph.
 
-### Chips
-- **Page-address nav chip:** `font-mono` number + label, `bg-blue text-white border-blue` at rest, `bg-cyan text-black border-cyan` when active — broadcast-colored in both registers per the Chip Exception Rule.
-- **Alert/status chip (LIVE tag, 404 header):** `bg-red-chip text-white`, small, uppercase, no border — the filled-badge alert treatment.
-- **Skills subpage number chip:** Same chip grammar as nav (`bg-cyan` active / transparent-bordered-white inactive), plus a third state, `bg-yellow text-black`, for the HOLD/HELD toggle.
-
-### Cards / Containers (`tt-frame`)
-- **Corner Style:** Square, 0 radius, no exceptions.
-- **Background:** `bg-paper` / `bg-black`, occasionally with a blue chrome header bar (Experience items, Skills bar, Terminal header) that is always broadcast-blue with white text regardless of register.
-- **Shadow Strategy:** None at rest; see Elevation & Depth.
-- **Border:** `2px solid` ink (light) / white (dark) via `.tt-frame`.
-- **Internal Padding:** `p-5`–`p-6` mobile → `p-6`–`p-8` desktop (1.25–2rem), depending on component.
+### Cards / Containers
+- **Corner Style:** `.notch` cut corner.
+- **Background:** Near-transparent tint (`bg-graphite/[0.02] dark:bg-void/[0.03]`) over the page ground, not a solid panel color.
+- **Border:** `1px solid border-graphite/12` (light) / `border-void/12` (dark), brightening toward the mode-matched amber on hover where interactive.
 
 ### Navigation
-- **Style:** Fixed top bar, transparent until 50px scroll, then gains a `tt-frame` bottom border. Logo is a filled cyan "P100" chip. Page-address chips (100 HOME, 200 ABOUT, 300 WORK, 400 SKILLS, 500 CONTACT) run horizontally on desktop; active section (via `IntersectionObserver`) resolves to the cyan-filled active chip state.
-- **Theme toggle:** Monitor/Sun/Moon icon opening a `tt-frame` dropdown; options are labeled **AUTO** (system), **PRINT** (light/printed register), **BROADCAST** (dark/broadcast register) — the labels are in-world, not generic theme names.
-- **Mobile:** Hamburger + full-screen scrim panel listing the same page-address chips stacked and centered.
+- **Style:** Fixed top bar, transparent until scrolled, then a translucent blurred backdrop with a hairline bottom border. A small graphite node-diagram mark (with an `amber-deep` accent line, fixed regardless of mode — see Shapes) precedes the wordmark.
+- **Link states:** Muted `graphite/60` / `ash` at rest; active/hover resolves to the mode-safe amber pair. Links are separated by literal `/` characters, not pipes or dots.
+- **Mobile:** Hamburger opens a full-bleed scrim + panel (fixes a mobile-menu-clipping issue found in the prior redesign's critique).
 
-### Skills Subpage Carousel (signature component)
-The system's clearest medium-native device. Six skill categories are numbered subpages (401–406) inside a single `tt-frame`, auto-advancing every 6 seconds like a real teletext subpage cycling on a fixed page number. Selecting a subpage number or pressing **HOLD** stops the cycle and shows **HELD** — a genuine broadcast-page interaction (holding a subpage on a real teletext remote), not decorative animation. Disabled entirely under `prefers-reduced-motion`.
+### Tensegrity Scene (signature component)
+A live `@react-three/fiber` WebGL scene: five alternating triangular rings of carbon-fiber rods (cylinders, `roughness 0.35 / metalness 0.6`), connected by thin emissive Signal Amber tension cables (`#f59e0b`, thin cylinders, not flat lines — flat `lineBasicMaterial` was tried first and rejected in finish review for not reading as taut cord), with a small dark sphere at every joint and a soft `ContactShadows` ground plane beneath. The 3D scene doesn't re-theme with light/dark mode (it isn't page text, so the mode-safe pairing rule doesn't apply) — it always uses the bright amber, which reads well against the rods' dark carbon-fiber material regardless of the page's register. The whole lattice rotates slowly (`rotation.y += 0.12/s`) with a subtle breathing scale pulse (`±1.5%`, `sin` over ~14s), driven directly in the Three.js render loop rather than CSS. Lazy-loaded (`React.lazy`) and gated on a WebGL capability probe plus `prefers-reduced-motion`, so it never blocks first paint and never renders for visitors who've asked for less motion.
 
-### Terminal
-`TerminalPortfolio.tsx`'s command/filesystem logic is unchanged from the prior system and out of scope here. Its chrome was restyled to match the rest of this system: a blue header bar (matching Experience/Skills bars) with a **CLOSE** text button in place of a macOS traffic-light metaphor, and the modal panel carries the system's one detach drop-shadow.
+**Implementation note:** the canvas requires a `requestAnimationFrame` + manual `window.dispatchEvent(new Event('resize'))` nudge on mount — a verified, real workaround for react-three-fiber's resize observer occasionally missing its first size reading when mounted lazily inside a conditionally-rendered `Suspense` boundary. Preserve this if the component is ever refactored; removing it silently reintroduces a canvas stuck at the browser's 300×150 default size.
+
+### Leader-Line Annotation
+- **Style:** A hollow `border-current` dot, a label, and a filling hairline rule (`opacity: 0.35`), used for stats, timestamps, and row metadata throughout Hero, About, Experience, Skills, Contact, and Navigation.
+- **Scope:** This is a 2D UI annotation idiom echoing the lattice's engineering-callout character — it is not, and should not become, literal lines routed to the 3D scene's actual node coordinates; an earlier draft of this system's own direction contract overclaimed that connection and was corrected during finish review.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** keep every corner square. Zero border-radius is a hard invariant carried over unchanged from the prior system.
-- **Do** set VT323 for all type, in every role — no second typeface, ever.
-- **Do** keep filled chips (nav pills, LIVE tag, 404 header) broadcast-colored in light mode, per the Chip Exception Rule — do not let them fall back to ink-on-paper.
-- **Do** let running text, borders, and stat/data figures fall back to plain ink in light mode via `dark:`-prefixed color roles.
-- **Do** use `scaleY(1.15)` on page numbers and titles only — the Double-Height Rule is reserved for that role.
-- **Do** use `tt-frame` (2px solid border) and `tt-rule` (1px dashed) for structural separation instead of shadows or elevation.
-- **Do** use Chip Red (`#b30000`) rather than bare Alert Red (`#ff0000`) for any small filled badge that needs reliable white-text contrast.
-- **Do** treat cyan as the system's primary interactive/active signal — active nav state, focus rings, selection, hover, primary CTA.
+- **Do** set every Big Shoulders Display heading in uppercase — the Signage Caps Rule.
+- **Do** use `amber-deep` in light mode and `amber-bright` in dark mode for every accent use (text, border, focus ring, fill) — the Mode-Safe Everything Rule. There is no bare `amber` shortcut.
+- **Do** give primary CTAs (and only primary CTAs) a trailing "+" glyph.
+- **Do** keep 2D chrome flat and border-defined; reserve real dimensional depth for the 3D lattice — the Depth Belongs to the Structure Rule.
+- **Do** use real data in every leader-line annotation; never fabricate a stat, status, or reading to make a section feel more "live."
 
 ### Don't:
-- **Don't** round any corner, anywhere, for any reason.
-- **Don't** pair VT323 with a second font for "hierarchy" — hierarchy comes from size, the double-height transform, and color role only.
-- **Don't** add a resting drop-shadow to page content. The terminal's detach shadow and the hero CTA's inset groove are the only two exceptions, both named above.
-- **Don't** introduce a color outside the six-role palette (yellow/cyan/green/red/red-chip/blue) plus the two register-neutral pairs.
-- **Don't** reintroduce the prior "Engineering Blueprint" identity — copper accent, blueprint grid texture, Space Grotesk/JetBrains Mono pairing, `/01`-style numbered sections. None of it carries forward except zero-radius.
-- **Don't** avoid dither/halftone rendering on the assumption it's off-brand — it's a native device of this world that the current build simply hasn't reached yet (see Elevation & Depth).
+- **Don't** reintroduce the boxed "icon/number + label" metric-card grid for stats (a finish-review fix removed exactly this pattern from About) — the craft floor bans it outright, and this system's own idiom for stats is the leader-line list.
+- **Don't** render the tension cables as flat unlit lines — they're cylindrical, emissive-tinted geometry, matching the rods' material treatment.
+- **Don't** round any corner outside the two named exceptions (the leader-line dot, the lattice's joint spheres); everything else uses the cut-corner `.notch` silhouette or stays square.
+- **Don't** reach for a second accent hue, a gradient, or glassmorphic panels — the anti-reference is the generic AI-startup portfolio default this system was built to avoid.
+- **Don't** use bright amber as fill with light/void text, or deep amber as fill with dark text — both fail contrast; fills always pair the mode-matched amber with the opposite-register neutral.
+- **Don't** remove the TensegrityScene mount-time resize nudge without understanding why it's there; the canvas will silently render at the wrong size.

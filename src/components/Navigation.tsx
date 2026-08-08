@@ -5,14 +5,9 @@ import { navItems } from '../data/resume';
 type ThemeMode = 'system' | 'light' | 'dark';
 
 const themeOptions: { mode: ThemeMode; label: string; Icon: React.ComponentType<{ className?: string }> }[] = [
-  { mode: 'system', label: 'AUTO', Icon: Monitor },
-  { mode: 'light', label: 'PRINT', Icon: Sun },
-  { mode: 'dark', label: 'BROADCAST', Icon: Moon },
-];
-
-const pages = [
-  { num: '100', label: 'HOME', href: '#hero' },
-  ...navItems.map((item, i) => ({ num: `${(i + 2) * 100}`, label: item.label.toUpperCase(), href: item.href })),
+  { mode: 'system', label: 'System', Icon: Monitor },
+  { mode: 'light', label: 'Light', Icon: Sun },
+  { mode: 'dark', label: 'Dark', Icon: Moon },
 ];
 
 function getStoredTheme(): ThemeMode {
@@ -105,23 +100,23 @@ export default function Navigation() {
 
   const ActiveIcon = themeOptions.find((o) => o.mode === theme)!.Icon;
 
-  const pageChipClass = (href: string) => {
-    const active = activeSection === href.slice(1);
-    return `font-mono text-lg leading-none px-3 py-1.5 border transition-colors ${
-      active
-        ? 'bg-cyan text-black border-cyan'
-        : 'bg-blue text-white border-blue hover:border-cyan'
+  const navLinkClass = (href: string) =>
+    `font-mono text-xs uppercase tracking-wider transition-colors ${
+      activeSection === href.slice(1)
+        ? 'text-amber-deep dark:text-amber-bright'
+        : 'text-graphite/60 dark:text-ash hover:text-graphite dark:hover:text-void'
     }`;
-  };
 
   const themeDropdown = (
-    <div className="absolute right-0 top-full mt-1 w-40 tt-frame bg-paper dark:bg-black z-50">
+    <div className="absolute right-0 top-full mt-2 w-36 notch-sm border border-graphite/15 dark:border-void/15 bg-concrete dark:bg-carbon shadow-lg py-1 z-50">
       {themeOptions.map(({ mode, label, Icon }) => (
         <button
           key={mode}
           onClick={() => selectTheme(mode)}
-          className={`w-full flex items-center gap-3 px-4 py-2 font-mono text-lg transition-colors ${
-            theme === mode ? 'bg-cyan text-black' : 'hover:bg-blue hover:text-white'
+          className={`w-full flex items-center gap-3 px-4 py-2 font-mono text-xs transition-colors ${
+            theme === mode
+              ? 'text-amber-deep dark:text-amber-bright'
+              : 'text-graphite/60 dark:text-ash hover:text-graphite dark:hover:text-void'
           }`}
         >
           <Icon className="w-4 h-4" />
@@ -134,33 +129,43 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 bg-paper dark:bg-black transition-[border-color] duration-150 ${
-          scrolled ? 'tt-frame border-t-0 border-x-0' : 'border-b-2 border-transparent'
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          scrolled
+            ? 'bg-concrete/90 dark:bg-carbon/90 backdrop-blur-md border-b border-graphite/10 dark:border-void/10'
+            : 'bg-transparent'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a
             href="#hero"
             onClick={(e) => handleClick(e, '#hero')}
-            className="font-mono text-2xl leading-none shrink-0"
+            className="flex items-center gap-2.5 font-display font-bold text-lg tracking-wide"
           >
-            <span className="bg-cyan text-black px-1.5">P100</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+              <polygon points="9,1 17,6 17,12 9,17 1,12 1,6" fill="none" stroke="currentColor" strokeWidth="1" className="text-graphite/40 dark:text-ash/40" />
+              <line x1="9" y1="1" x2="9" y2="17" stroke="#8a4a05" strokeWidth="1" />
+              <line x1="1" y1="6" x2="17" y2="12" stroke="#8a4a05" strokeWidth="1" />
+            </svg>
+            VINU VARGHESE
           </a>
 
-          <div className="hidden md:flex items-center gap-2 overflow-x-auto">
-            {pages.map((page) => (
-              <a key={page.href} href={page.href} onClick={(e) => handleClick(e, page.href)} className={pageChipClass(page.href)}>
-                {page.num} {page.label}
-              </a>
+          <div className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
+              <React.Fragment key={item.href}>
+                <a href={item.href} onClick={(e) => handleClick(e, item.href)} className={navLinkClass(item.href)}>
+                  {item.label}
+                </a>
+                <span className="text-graphite/20 dark:text-void/20 text-xs" aria-hidden="true">/</span>
+              </React.Fragment>
             ))}
-            <div className="relative ml-2" ref={desktopThemeRef}>
+            <div className="relative" ref={desktopThemeRef}>
               <button
                 onClick={() => setThemeMenuOpen(!themeMenuOpen)}
-                className="p-2 border border-ink/30 dark:border-white/30 hover:border-cyan transition-colors"
+                className="p-2 text-graphite/60 dark:text-ash hover:text-amber-deep dark:hover:text-amber-bright transition-colors"
                 aria-label="Theme"
                 title="Theme"
               >
-                <ActiveIcon className="w-5 h-5" />
+                <ActiveIcon className="w-4 h-4" />
               </button>
               {themeMenuOpen && themeDropdown}
             </div>
@@ -170,16 +175,16 @@ export default function Navigation() {
             <div className="relative" ref={mobileThemeRef}>
               <button
                 onClick={() => setThemeMenuOpen(!themeMenuOpen)}
-                className="p-2 border border-ink/30 dark:border-white/30"
+                className="p-2 text-graphite/60 dark:text-ash"
                 aria-label="Theme"
                 title="Theme"
               >
-                <ActiveIcon className="w-5 h-5" />
+                <ActiveIcon className="w-4 h-4" />
               </button>
               {themeMenuOpen && themeDropdown}
             </div>
             <button
-              className="p-2 border border-ink/30 dark:border-white/30"
+              className="p-2 text-graphite/60 dark:text-ash"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
@@ -190,36 +195,35 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile menu: full scrim + panel, teletext page index */}
+      {/* Mobile menu: full scrim so content never clips beneath it */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 z-30 bg-black/85">
-          <div className="absolute top-16 left-0 right-0 bg-paper dark:bg-black tt-frame border-t-0 border-x-0 px-6 py-4 flex flex-col gap-2">
-            {pages.map((page) => (
+        <div className="md:hidden fixed inset-0 z-30 bg-carbon/90 backdrop-blur-sm">
+          <div className="absolute top-16 left-0 right-0 bg-concrete dark:bg-carbon border-b border-graphite/10 dark:border-void/10 px-6 py-4 flex flex-col gap-4">
+            {navItems.map((item) => (
               <a
-                key={page.href}
-                href={page.href}
-                onClick={(e) => handleClick(e, page.href)}
-                className={`${pageChipClass(page.href)} w-full text-center`}
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleClick(e, item.href)}
+                className={`${navLinkClass(item.href)} text-sm py-1`}
               >
-                {page.num} {page.label}
+                {item.label}
               </a>
             ))}
           </div>
         </div>
       )}
 
-      {/* Back to top: fixed bottom-right, stacked above Hero's terminal launcher.
-          Positioned right (not left) so it never crosses a page header's left-aligned
-          number+title, and tabIndex tracks visibility so keyboard focus never lands
-          on an invisible control. */}
+      {/* Back to top: bottom-right, stacked above the terminal launcher,
+          tabIndex tracks visibility so keyboard focus never lands on an
+          invisible control */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         tabIndex={showBackToTop ? 0 : -1}
-        className={`fixed bottom-28 right-8 z-30 border border-ink/30 dark:border-white/30 bg-paper dark:bg-black p-3 hover:border-cyan transition-[opacity,border-color] duration-200 ${
+        className={`fixed bottom-28 right-8 z-30 notch-sm border border-graphite/20 dark:border-void/20 bg-concrete dark:bg-carbon p-3 hover:border-amber-deep dark:hover:border-amber-bright hover:text-amber-deep dark:hover:text-amber-bright transition-[opacity,border-color,color] duration-200 ${
           showBackToTop ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
-        aria-label="Back to page 100"
-        title="Back to page 100"
+        aria-label="Back to top"
+        title="Back to top"
       >
         <ArrowUp className="w-5 h-5" />
       </button>

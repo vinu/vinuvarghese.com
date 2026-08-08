@@ -22,8 +22,8 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 - Pages are static HTML by default. React components hydrate only when marked with a `client:*` directive in Astro templates.
 - Hydrated islands: `Navigation.tsx` and `Hero.tsx` (`client:load`), `Skills.tsx` (`client:visible`). Everything else renders as static HTML.
-- The hero no longer runs a three.js scene — `HeroScene.tsx` and the `@react-three/fiber`/`three` dependencies were removed as part of the teletext redesign (a flat broadcast medium has no wireframe/particle background).
-- Reveal-on-scroll (`[data-reveal]`) is one vanilla script in `index.astro`: a `pour-in` clip-path wipe simulating a broadcast page arriving, skipped entirely under `prefers-reduced-motion`. The head script adds an `html.js` class — reveal-hiding CSS only applies under `.js` so no-JS visitors see full content. Card tilt and magnetic buttons (physical/tactile devices from the old design world) were retired in the same redesign.
+- The hero runs a live `@react-three/fiber` scene (`TensegrityScene.tsx`) — a procedurally-generated tensegrity lattice (carbon rods, tensioned cables, joint nodes, ground shadow), lazy-loaded via `React.lazy` so three.js (~230KB gz) sits in its own chunk fetched after hydration. Gated on a WebGL capability probe and `prefers-reduced-motion`. Needs a `requestAnimationFrame` + manual `resize` event dispatch on mount to work around a real r3f canvas-sizing bug when lazy-mounted inside a conditional `Suspense` branch — see DESIGN.md's Tensegrity Scene section before touching this.
+- Reveal-on-scroll (`[data-reveal]`) is one vanilla script in `index.astro`: a fade+rise (`translateY(18px)→0`), skipped entirely under `prefers-reduced-motion`. The head script adds an `html.js` class — reveal-hiding CSS only applies under `.js` so no-JS visitors see full content.
 - Tailwind 4 runs via `@tailwindcss/postcss` (`postcss.config.mjs`) — NOT `@tailwindcss/vite`, which breaks against Astro 7's rolldown-based Vite 8, and NOT the deprecated `@astrojs/tailwind`. There is no `tailwind.config` file; all theme tokens live in `src/index.css` under `@theme`.
 - Google Analytics (`gtag.js`) loads as a normal async script in `Layout.astro` — not proxied through Partytown. That was tried and quietly dropped 100% of analytics data (Astro's `define:vars` strips the `type="text/partytown"` attribute, and even after fixing that, Partytown's worker sandbox never actually fetched `gtag/js`— confirmed via GA4 Admin showing zero data ever received). Don't reintroduce Partytown for this.
 - `@astrojs/sitemap` generates XML sitemaps at build time.
@@ -33,21 +33,21 @@ No test framework is configured. Node v24 is required (see .nvmrc); Astro 7 need
 
 - `src/pages/` — Astro file-based routing (`index.astro`, `404.astro`)
 - `src/layouts/Layout.astro` — Main layout wrapper (SEO meta, JSON-LD, analytics, fonts, theme init script)
-- `src/components/` — React components (Navigation, Hero, About, Experience, Skills, Contact, Footer, PageHeader, Icons, TerminalPortfolio)
+- `src/components/` — React components (Navigation, Hero, TensegrityScene, About, Experience, Skills, Contact, Footer, SectionHeading, Icons, TerminalPortfolio)
 - `src/data/resume.ts` — Centralized resume data (experiences, skills, stats, contact links, nav items). Single source of truth used by multiple components.
 - `src/utils/ImageUtils.ts` — Image optimization via Astro's `getImage()` API
-- `src/index.css` — Tailwind 4 `@theme` tokens, keyframes, `tt-frame`/`tt-rule`/`tt-scanlines` teletext utilities
+- `src/index.css` — Tailwind 4 `@theme` tokens, `.notch`/`.notch-sm` cut-corner clip-path utilities, `.leader` annotation utility
 - `public/robots.txt` — Crawler rules and sitemap reference
 
-### Design system ("broadcast teletext service")
+### Design system ("the tensegrity column")
 
 Full DESIGN.md at the project root documents this system in detail; keep it in sync with this summary.
 
-- **Type**: VT323 (single typeface for everything — both `--font-sans` and `--font-mono`) via Google Fonts in `Layout.astro`. No font pairing.
-- **Palette** (defined in `@theme` in `src/index.css`): `paper`/`ink` (printed-register neutrals, light mode) plus plain `bg-black`/`text-white` (broadcast-register neutrals, dark mode, not tokens) and six functional role colors — `yellow` (display type), `cyan` (signal/active accent), `green` (data/stat values), `red` (alert, reserved), `red-chip` (alert, actually used — LIVE tag, 404 header), `blue` (structural chrome fill: nav pills, Experience/Skills/Terminal header bars, always white-on-blue).
-- **Registers, not just light/dark**: light mode = printed teletext (ink-only text/borders on paper); dark mode = broadcast (full color on black). Filled chips (page-address nav pills, LIVE tag, 404 header) keep their broadcast color in both registers — only running text/borders/stat figures fall back to ink in light mode.
-- **Motifs**: pages addressed by number (`100 HOME` … `500 CONTACT`) via `Navigation.tsx`, not a scrolling section list; double-height page numbers/titles (`transform: scaleY(1.15)`) in `PageHeader.tsx`/`Hero.tsx`/`404.astro`; `tt-frame` (2px border) and `tt-rule` (dashed divider) in place of shadows/cards; zero border-radius everywhere (the one invariant carried over from the prior "Engineering Blueprint" system).
-- Signature component: `Skills.tsx`'s subpage carousel — auto-advances every 6s through numbered subpages 401–406, pauses/shows "HELD" on interaction.
+- **Type**: three-tier pairing via Google Fonts in `Layout.astro` — Big Shoulders Display (condensed grotesk, always uppercase, hero name + section/role headings), IBM Plex Sans (body prose), IBM Plex Mono (labels/data/UI chrome).
+- **Palette** (defined in `@theme` in `src/index.css`): `carbon`/`void`/`ash` (night-studio neutrals, dark mode), `concrete`/`graphite` (daylight-studio neutrals, light mode), and one accent — Signal Amber — split into two mode-safe variants: `amber-deep` (light mode) / `amber-bright` (dark mode), used for every accent role (text, border, focus ring, fill). There is no bare `amber` shortcut — amber is bright enough that neither variant is safe in the opposite register. See DESIGN.md's Mode-Safe Everything Rule.
+- **Signature component**: `TensegrityScene.tsx` — a live WebGL rod-and-cable lattice anchoring the hero (see Architecture above). The `.leader` dot-plus-rule annotation motif (stats, timestamps, metadata) is the system's recurring 2D echo of the lattice's engineering-callout character — real data only, and explicitly NOT literal lines routed to the 3D scene's node coordinates.
+- **Shapes**: `.notch`/`.notch-sm` cut-corner clip-path is the recurring silhouette on buttons/cards/panels. Two deliberate circular exceptions: the leader-line dot and the lattice's joint-node spheres.
+- Primary CTAs carry a trailing `+` glyph; secondary/utility controls do not.
 
 ### Theme system
 

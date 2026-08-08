@@ -1,86 +1,67 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-08T02:09:01Z",
+  "generatedAt": "2026-08-08T13:20:00Z",
   "title": "Design System: Vinu Varghese — Portfolio",
   "extensions": {
     "colorMeta": {
-      "cyan": {
+      "amber-deep": {
         "role": "primary",
-        "displayName": "Signal Cyan",
-        "canonical": "#00ffff",
-        "tonalRamp": ["#003333", "#004d4d", "#006666", "#008080", "#00b3b3", "#00e6e6", "#00ffff", "#99ffff"]
+        "displayName": "Signal Amber, Deep",
+        "canonical": "#8a4a05",
+        "tonalRamp": ["#1c0f01", "#2d1802", "#432403", "#5c3104", "#764005", "#8a4a05", "#c0700b", "#f5a13a"]
       },
-      "yellow": {
-        "role": "secondary",
-        "displayName": "Display Yellow",
-        "canonical": "#ffff00",
-        "tonalRamp": ["#333300", "#4d4d00", "#666600", "#808000", "#b3b300", "#e6e600", "#ffff00", "#ffff99"]
+      "amber-bright": {
+        "role": "primary",
+        "displayName": "Signal Amber, Bright",
+        "canonical": "#f59e0b",
+        "tonalRamp": ["#3d2703", "#5c3a04", "#7d4f06", "#a3680a", "#c98212", "#f59e0b", "#ffbd4d", "#ffdb99"]
       },
-      "green": {
-        "role": "secondary",
-        "displayName": "Data Green",
-        "canonical": "#00ff00",
-        "tonalRamp": ["#003300", "#004d00", "#006600", "#008000", "#00b300", "#00e600", "#00ff00", "#99ff99"]
-      },
-      "blue": {
-        "role": "secondary",
-        "displayName": "Chrome Blue",
-        "canonical": "#12206b",
-        "tonalRamp": ["#050a2b", "#080f3f", "#0c1653", "#0f1c60", "#12206b", "#1c31a0", "#2f4bd6", "#7d8de8"]
-      },
-      "red": {
-        "role": "alert",
-        "displayName": "Alert Red",
-        "canonical": "#ff0000",
-        "tonalRamp": ["#330000", "#4d0000", "#660000", "#800000", "#b30000", "#e60000", "#ff0000", "#ff9999"]
-      },
-      "red-chip": {
-        "role": "alert",
-        "displayName": "Chip Red",
-        "canonical": "#b30000",
-        "tonalRamp": ["#260000", "#3a0000", "#4d0000", "#660000", "#800000", "#990000", "#b30000", "#cc3333"]
-      },
-      "paper": {
+      "carbon": {
         "role": "neutral",
-        "displayName": "Printed Paper",
-        "canonical": "#f7f5f0",
-        "tonalRamp": ["#262521", "#3a3833", "#4f4c45", "#635f57", "#7c786e", "#a19c8f", "#c6c1b3", "#f7f5f0"]
+        "displayName": "Carbon",
+        "canonical": "#0d0d0f",
+        "tonalRamp": ["#000000", "#0d0d0f", "#1c1c1f", "#2e2e31", "#434346", "#5b5b5e", "#767679", "#949497"]
       },
-      "ink": {
+      "void": {
         "role": "neutral",
-        "displayName": "Broadcast Ink",
-        "canonical": "#14120f",
-        "tonalRamp": ["#0a0908", "#14120f", "#242119", "#393427", "#4f4938", "#67604a", "#837a5e", "#a89f80"]
+        "displayName": "Void",
+        "canonical": "#f7f7f8",
+        "tonalRamp": ["#94949a", "#a9a9ae", "#bfbfc3", "#d5d5d7", "#e5e5e7", "#eeeeef", "#f7f7f8", "#ffffff"]
       },
-      "broadcast-black": {
+      "ash": {
         "role": "neutral",
-        "displayName": "Broadcast Black",
-        "canonical": "#000000",
-        "tonalRamp": ["#000000", "#0d0d0d", "#1a1a1a", "#262626", "#333333", "#404040", "#4d4d4d", "#595959"]
+        "displayName": "Ash",
+        "canonical": "#9a9a9c",
+        "tonalRamp": ["#232324", "#38383a", "#4f4f51", "#666668", "#7d7d7f", "#9a9a9c", "#b8b8b9", "#d6d6d7"]
       },
-      "broadcast-white": {
+      "concrete": {
         "role": "neutral",
-        "displayName": "Broadcast White",
-        "canonical": "#ffffff",
-        "tonalRamp": ["#a6a6a6", "#b3b3b3", "#c0c0c0", "#cccccc", "#d9d9d9", "#e6e6e6", "#f2f2f2", "#ffffff"]
+        "displayName": "Concrete",
+        "canonical": "#e6e3df",
+        "tonalRamp": ["#232220", "#393734", "#514f4b", "#6a6764", "#87847e", "#a8a49d", "#c8c4bc", "#e6e3df"]
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphite",
+        "canonical": "#1c1c1e",
+        "tonalRamp": ["#000000", "#1c1c1e", "#2f2f31", "#444446", "#5b5b5d", "#747476", "#8f8f90", "#acacad"]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero masthead ('VINU / VARGHESE') and the 404 page's '404' digits only — double-height, scaleY(1.15)." },
-      "headline": { "displayName": "Headline", "purpose": "Every PageHeader page-number + title pair (200 About, 300 Work, 400 Skills, 500 Contact) — double-height, scaleY(1.15)." },
-      "title": { "displayName": "Title", "purpose": "Experience role headings and the Skills active-subpage title." },
-      "body": { "displayName": "Body", "purpose": "Paragraph copy throughout." },
-      "label": { "displayName": "Label", "purpose": "Nav chips, stat captions, terminal chrome, contact-row labels, prompt copy." }
+      "display": { "displayName": "Display", "purpose": "Hero name only — 800 weight, always uppercase." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings, Experience role titles, Skills node titles — 700 weight, always uppercase." },
+      "body": { "displayName": "Body", "purpose": "Paragraph prose (IBM Plex Sans, not the mono face)." },
+      "label": { "displayName": "Label / Mono", "purpose": "Nav links, stat captions, terminal chrome, leader-line annotations, contact-row labels." }
     },
     "shadows": [
-      { "name": "terminal-detach", "value": "0 32px 80px -24px rgba(0,0,0,0.7)", "purpose": "The terminal modal panel's only shadow, separating it from the scrim/page behind it." },
-      { "name": "cta-inset-groove-light", "value": "inset 0 0 0 2px var(--color-paper)", "purpose": "Draws a double-border groove just inside the hero primary CTA's 2px ink border (light register). Removed on hover when the button fills solid." },
-      { "name": "cta-inset-groove-dark", "value": "inset 0 0 0 2px black", "purpose": "Dark-register equivalent of cta-inset-groove-light, paired with the CTA's cyan border." }
+      { "name": "terminal-detach", "value": "0 32px 80px -24px rgba(0,0,0,0.7)", "purpose": "The terminal modal panel's only 2D shadow, separating it from the scrim behind it." },
+      { "name": "lattice-contact-shadow", "value": "@react-three/drei ContactShadows: opacity 0.35, blur 2.4, scale 4", "purpose": "Soft ground shadow grounding the 3D lattice in its studio space — the system's real dimensional depth lives here, not in 2D CSS." }
     ],
     "motion": [
-      { "name": "blink", "value": "blink 1.1s step-end infinite", "purpose": "Terminal-style cursor blink after the hero's 'whoami' prompt." },
-      { "name": "pour-in", "value": "pour-in 0.4s steps(6) both", "purpose": "The system's one authored scroll-reveal: a clip-path wipe (inset 100%→0% from the left, stepped) simulating a broadcast page arriving. Applied to [data-reveal] elements via IntersectionObserver, skipped entirely under prefers-reduced-motion." },
-      { "name": "skills-auto-advance", "value": "setInterval 6000ms, cleared on HOLD or prefers-reduced-motion", "purpose": "Auto-advances the Skills subpage carousel through categories 401-406; a genuine broadcast-subpage-cycling device, not decoration." }
+      { "name": "lattice-rotation", "value": "group.rotation.y += 0.12/s, driven in the r3f render loop", "purpose": "Slow continuous rotation of the tensegrity lattice." },
+      { "name": "lattice-breathe", "value": "scale = 1 + sin(t*0.45)*0.012, driven in the r3f render loop", "purpose": "Subtle breathing scale pulse on the lattice, ~1.2% amplitude." },
+      { "name": "reveal-fade-rise", "value": "opacity 0->1, translateY(18px)->0, 0.6s cubic-bezier(0.16,1,0.3,1)", "purpose": "The system's one authored 2D scroll-reveal, applied to [data-reveal] via IntersectionObserver. Skipped entirely under prefers-reduced-motion." },
+      { "name": "portrait-hover-desaturate", "value": "grayscale(1)->grayscale(0), 400ms ease-out, filter transition", "purpose": "Hero portrait resolves to color on hover/focus (desktop, hover:hover pointer:fine only)." }
     ],
     "breakpoints": [
       { "name": "sm", "value": "640px" },
@@ -90,98 +71,76 @@
   },
   "components": [
     {
-      "name": "Primary CTA (SELECT button)",
+      "name": "Primary Button (light register)",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Hero's outline CTA with an inset double-border groove; the system's one inset-shadow button treatment.",
-      "html": "<button class=\"ds-btn-primary\">&gt; SELECT ./portfolio --interactive</button>",
-      "css": ".ds-btn-primary { font-family: 'VT323', ui-monospace, monospace; font-size: 1.125rem; background: transparent; color: #14120f; border: 2px solid #14120f; box-shadow: inset 0 0 0 2px #f7f5f0; padding: 10px 20px; cursor: pointer; transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { background: #14120f; color: #f7f5f0; box-shadow: none; outline: none; }"
+      "description": "Cut-corner solid-fill CTA with a trailing + glyph — reserved for primary actions only. Light-mode pairing shown; dark mode swaps to amber-bright fill + carbon text.",
+      "html": "<button class=\"ds-btn-primary\">Explore Systems <span aria-hidden=\"true\">+</span></button>",
+      "css": ".ds-btn-primary { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; background: #8a4a05; color: #f7f7f8; clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px); padding: 12px 24px; border: none; cursor: pointer; transition: opacity 0.15s ease; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { opacity: 0.9; }"
     },
     {
-      "name": "Page-Address Nav Chip",
-      "kind": "nav",
-      "refersTo": "nav-chip",
-      "description": "Numbered page chip (100 HOME, 200 ABOUT, ...); filled blue at rest, filled cyan when active. Broadcast-colored in both light and dark register.",
-      "html": "<a href=\"#about\" class=\"ds-nav-chip ds-nav-chip--active\">200 ABOUT</a>",
-      "css": ".ds-nav-chip { font-family: 'VT323', ui-monospace, monospace; font-size: 1.125rem; line-height: 1; padding: 6px 12px; border: 1px solid #12206b; background: #12206b; color: #ffffff; text-decoration: none; display: inline-block; transition: border-color 0.15s ease; } .ds-nav-chip:hover { border-color: #00ffff; } .ds-nav-chip--active { background: #00ffff; border-color: #00ffff; color: #000000; }"
-    },
-    {
-      "name": "Alert Chip (LIVE / 404 header)",
-      "kind": "chip",
-      "refersTo": "chip-alert",
-      "description": "Small filled alert badge; used for the hero's LIVE tag and the 404 page's header bar.",
-      "html": "<span class=\"ds-chip-alert\">LIVE</span>",
-      "css": ".ds-chip-alert { font-family: 'VT323', ui-monospace, monospace; font-size: 1.25rem; background: #b30000; color: #ffffff; padding: 2px 8px; display: inline-block; }"
-    },
-    {
-      "name": "Page Header (double-height)",
+      "name": "Leader-Line Annotation",
       "kind": "custom",
-      "refersTo": "page-header",
-      "description": "Double-height page-number + title pair used at the top of every content section, followed by a dashed tt-rule.",
-      "html": "<div class=\"ds-page-header\"><span class=\"ds-page-header__num\">200</span><h2 class=\"ds-page-header__title\">ABOUT</h2></div><div class=\"ds-page-header__rule\"></div>",
-      "css": ".ds-page-header { display: flex; align-items: baseline; gap: 16px; } .ds-page-header__num, .ds-page-header__title { font-family: 'VT323', ui-monospace, monospace; font-size: 3rem; line-height: 1; color: #14120f; transform: scaleY(1.15); transform-origin: bottom; margin: 0; } .ds-page-header__rule { margin-top: 16px; border-top: 1px dashed rgba(20,18,15,0.35); }"
+      "refersTo": "leader-annotation",
+      "description": "Hollow dot + label + filling hairline rule — the system's recurring engineering-callout idiom for stats and metadata. Real data only.",
+      "html": "<div class=\"ds-leader\"><span class=\"ds-leader__dot\"></span><span class=\"ds-leader__label\">Years Experience</span><span class=\"ds-leader__rule\"></span><span class=\"ds-leader__value\">20+</span></div>",
+      "css": ".ds-leader { display: flex; align-items: center; gap: 0.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: #9a9a9c; } .ds-leader__dot { width: 6px; height: 6px; border: 1.5px solid currentColor; border-radius: 999px; flex-shrink: 0; } .ds-leader__label { text-transform: uppercase; letter-spacing: 0.05em; flex-shrink: 0; } .ds-leader__rule { flex: 1; border-top: 1px solid currentColor; opacity: 0.35; min-width: 1rem; } .ds-leader__value { color: #f59e0b; font-size: 0.875rem; flex-shrink: 0; }"
     },
     {
-      "name": "Experience Item (tt-frame + chrome bar)",
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "section-heading",
+      "description": "Uppercase display title with a trailing index label (inline, not a kicker above the heading) and a filling hairline rule.",
+      "html": "<div class=\"ds-section-heading\"><h2 class=\"ds-section-heading__title\">About</h2><span class=\"ds-section-heading__index\">/01</span><div class=\"ds-section-heading__rule\"></div></div>",
+      "css": ".ds-section-heading { display: flex; align-items: baseline; gap: 16px; } .ds-section-heading__title { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; font-size: 2.25rem; text-transform: uppercase; letter-spacing: -0.01em; margin: 0; } .ds-section-heading__index { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: rgba(28,28,30,0.4); } .ds-section-heading__rule { flex: 1; height: 1px; background: rgba(28,28,30,0.15); }"
+    },
+    {
+      "name": "Content Card",
       "kind": "card",
-      "refersTo": "experience-item",
-      "description": "Framed content unit with a broadcast-blue 'ITEM 30N' header bar, always white-on-blue regardless of register.",
-      "html": "<div class=\"ds-frame\"><div class=\"ds-frame__bar\"><span>ITEM 301</span><span>Jan 2010 - Present</span></div><div class=\"ds-frame__body\"><h3>Technical Architect</h3><p>Xminds Infotech Pvt Ltd — Trivandrum</p></div></div>",
-      "css": ".ds-frame { border: 2px solid #14120f; } .ds-frame__bar { display: flex; justify-content: space-between; align-items: baseline; background: #12206b; color: #ffffff; font-family: 'VT323', ui-monospace, monospace; font-size: 1.125rem; padding: 8px 20px; } .ds-frame__body { padding: 24px; font-family: 'VT323', ui-monospace, monospace; } .ds-frame__body h3 { font-size: 1.875rem; margin: 0; } .ds-frame__body p { color: rgba(20,18,15,0.75); margin: 4px 0 0; }"
+      "refersTo": "card",
+      "description": "Cut-corner, near-transparent card used for Experience entries, Skills panel, Contact list, 404 frame.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card__title\">Technical Architect</h3><p class=\"ds-card__body\">Lead architect responsible for...</p></div>",
+      "css": ".ds-card { clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%, 0 14px); background: rgba(28,28,30,0.02); border: 1px solid rgba(28,28,30,0.12); padding: 24px; transition: border-color 0.3s ease; } .ds-card:hover { border-color: rgba(138,74,5,0.4); } .ds-card__title { font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 1.5rem; margin: 0 0 8px; } .ds-card__body { font-family: 'IBM Plex Sans', sans-serif; color: rgba(28,28,30,0.75); line-height: 1.6; }"
     },
     {
-      "name": "Skills Subpage Carousel",
-      "kind": "custom",
-      "refersTo": "skills-carousel",
-      "description": "Signature component: a single tt-frame with a blue subpage-number bar (401-406) plus a HOLD/HELD toggle, auto-advancing every 6s.",
-      "html": "<div class=\"ds-frame\"><div class=\"ds-carousel__bar\"><span class=\"ds-carousel__label\">P400</span><button class=\"ds-carousel__num ds-carousel__num--active\">401</button><button class=\"ds-carousel__num\">402</button><button class=\"ds-carousel__hold\">HOLD</button></div><div class=\"ds-frame__body\"><h3>Languages &amp; Frameworks</h3></div></div>",
-      "css": ".ds-carousel__bar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; background: #12206b; padding: 12px 16px; } .ds-carousel__label, .ds-carousel__num, .ds-carousel__hold { font-family: 'VT323', ui-monospace, monospace; font-size: 1.125rem; color: #ffffff; } .ds-carousel__num { padding: 2px 10px; border: 1px solid rgba(255,255,255,0.4); background: transparent; cursor: pointer; } .ds-carousel__num--active { background: #00ffff; color: #000000; border-color: #00ffff; } .ds-carousel__hold { margin-left: auto; padding: 2px 10px; border: 1px solid rgba(255,255,255,0.4); background: transparent; cursor: pointer; }"
-    },
-    {
-      "name": "Theme Toggle Dropdown",
+      "name": "Navigation Bar",
       "kind": "nav",
-      "refersTo": "theme-dropdown",
-      "description": "AUTO / PRINT / BROADCAST theme selector inside a tt-frame dropdown, in-world labels rather than generic 'system/light/dark'.",
-      "html": "<div class=\"ds-theme-menu\"><button class=\"ds-theme-menu__item ds-theme-menu__item--active\">AUTO</button><button class=\"ds-theme-menu__item\">PRINT</button><button class=\"ds-theme-menu__item\">BROADCAST</button></div>",
-      "css": ".ds-theme-menu { width: 160px; border: 2px solid #14120f; background: #f7f5f0; } .ds-theme-menu__item { display: flex; width: 100%; align-items: center; gap: 12px; padding: 8px 16px; font-family: 'VT323', ui-monospace, monospace; font-size: 1.125rem; background: transparent; border: none; color: #14120f; cursor: pointer; text-align: left; } .ds-theme-menu__item:hover { background: #12206b; color: #ffffff; } .ds-theme-menu__item--active { background: #00ffff; color: #000000; }"
+      "refersTo": "nav-bar",
+      "description": "Slash-separated text nav with a small graphite node-diagram logo mark (amber-deep accent line, fixed regardless of mode); transparent until scrolled, then a translucent blurred bar.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__link ds-nav__link--active\">About</a><span class=\"ds-nav__sep\">/</span><a class=\"ds-nav__link\">Experience</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 24px; } .ds-nav__link { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(28,28,30,0.6); text-decoration: none; transition: color 0.15s ease; } .ds-nav__link:hover { color: #1c1c1e; } .ds-nav__link--active { color: #8a4a05; } .ds-nav__sep { color: rgba(28,28,30,0.2); font-size: 0.75rem; }"
     }
   ],
   "narrative": {
-    "northStar": "The Broadcast Teletext Service",
-    "overview": "This is a broadcast teletext service, not a scrolling resume — a CEEFAX/Ceefax-register system where content lives on numbered pages (100 Home, 200 About, 300 Work, 400 Skills, 500 Contact) and arrives like a live bulletin rather than unrolling as a webpage. The grammar is entirely broadcast-native: a rigid character grid, block-bordered content units, double-height headers, and a fixed six-color role palette (yellow/cyan/green/red/red-chip/blue) applied by function, never by decoration. One typeface — VT323 — carries every line of copy, matching the single-glyph-set character grid of real teletext hardware rather than pairing a display face against a body face.\n\nThe system runs two registers, not a simple light/dark toggle. Dark mode is the broadcast register: pure black ground, white body text, and the full role palette in play. Light mode is the printed-teletext register: body text and hairlines fall back to plain ink on paper, as if the page had been printed from the broadcast signal — but small filled chips (page-address nav pills, the LIVE tag, the 404 page header) keep their broadcast color as stamped badges on paper in both registers, per real teletext-adjacent print convention. That asymmetry is deliberate and load-bearing, not an inconsistency to fix.\n\nExplicit anti-reference: this is not the '/01 About'-numbered engineering-blueprint identity that preceded it, and it is not a generic dark-gradient developer portfolio. No copper accent, no blueprint grid, no Space Grotesk/JetBrains Mono pairing carries forward — the only survivor from that world is the zero-border-radius invariant and a shared seriousness about engineering credibility.",
+    "northStar": "The Tensegrity Column",
+    "overview": "The portfolio is built like a tensegrity structure: rigid carbon rods that never touch, held in shape by taut amber cables, standing because of balanced opposing forces rather than a stacked frame. That's the literal 3D object anchoring the hero — a live-rendered WebGL lattice, not a photo or an illustration — and it's also the site's governing metaphor: twenty years of breadth across cloud, AI, and full-stack work holds together the same way, no single point of failure.\n\nThe system runs two registers. Dark is the night studio: carbon-black ground, void-white text, the lattice lit dramatically against near-black. Light is the daylight studio: poured-concrete ground, graphite text, the same lattice rendered in dark line-work against a warm neutral field. Both registers share one accent — Signal Amber — and the same cut-corner, engineering-signage vocabulary.\n\nExplicit anti-reference: this replaces a prior 'Broadcast Teletext Service' identity that didn't read as modern or dimensional, and it explicitly refuses the generic AI-portfolio default — a rotating abstract glass blob on a dark gradient with floating glassmorphic cards. The lattice is dimensional and animated, but it's a real, specific, procedurally-built structure tied to the product's own metaphor, not decorative motion for its own sake.",
     "keyCharacteristics": [
-      "Content is addressed as numbered pages (100/200/300/400/500), keyed and clicked like a real teletext service, not scrolled as anonymous sections",
-      "One typeface (VT323) for all type, in both roles — no display/body pairing",
-      "A fixed six-color broadcast palette (yellow, cyan, green, red, red-chip, blue) applied strictly by function",
-      "Two registers: full-color broadcast (dark) vs. ink-on-paper printed (light) — with filled chips exempt from the light-mode fallback",
-      "Double-height page numbers and titles (scaleY(1.15)), a real teletext typographic convention",
-      "Depth reads through 2px solid tt-frame borders and dashed tt-rule dividers, not ambient shadows",
-      "Zero border-radius everywhere — the one invariant carried over from the prior 'Engineering Blueprint' system"
+      "A live WebGL rod-and-cable lattice (carbon struts, tensioned amber cables, joint-node spheres, ground contact shadow) anchors the hero, rotating slowly with a subtle breathing pulse",
+      "Display type is a condensed industrial grotesk, always set in caps",
+      "One accent color (Signal Amber) split into two mode-safe variants — no bare value is safe in both registers",
+      "A cut-corner clip-path silhouette replaces rounded or square corners on buttons, cards, and chips",
+      "A dot-plus-rule leader-line annotation motif is the recurring stat/metadata idiom — real data only",
+      "Primary CTAs carry a trailing + glyph"
     ],
     "rules": [
-      { "name": "The Chip Exception Rule", "body": "Filled chips with a solid background and white/black text — page-address nav pills, the LIVE tag, the 404 page header — keep their broadcast color in both the printed and broadcast register. Everything else (running text, hairline borders, stat/data figures) falls back to plain ink-on-paper in light mode via a dark: pairing. A color's use as a small stamped badge is what exempts it from the light-mode fallback; a color used as running text or a resting number never is.", "section": "colors" },
-      { "name": "The Six-Role Palette Rule", "body": "Only six functional hues exist system-wide — yellow (display), cyan (signal/active), green (data), red (alert, reserved), red-chip (alert, shipped), blue (structural chrome) — plus the register-appropriate neutral pair. No color is introduced outside these roles; a new chip or accent must be justified against this list, not invented ad hoc.", "section": "colors" },
-      { "name": "The One Glyph Rule", "body": "Every line of type on the site — hero name, body prose, nav chips, terminal output — renders in VT323. No second family is introduced for contrast or hierarchy; hierarchy comes entirely from size, the double-height transform, and color role.", "section": "typography" },
-      { "name": "The Double-Height Rule", "body": "Page numbers and titles apply transform: scaleY(1.15); transform-origin: bottom — the hero masthead, every PageHeader, and the 404 digit block. This mimics real teletext's double-height row convention and is reserved for that exact role; it does not apply to body text, labels, or card titles.", "section": "typography" },
-      { "name": "The Bordered-Not-Shadowed Rule", "body": "Structural depth is a border or a dashed rule, never a resting shadow. A shadow appearing on a piece of content at rest (not a modal, not an inset CTA groove) is a bug, not a variant.", "section": "elevation" }
+      { "name": "The Mode-Safe Everything Rule", "body": "Amber has no bare value safe in both registers: amber-bright fails contrast on light backgrounds (as low as 1.7:1), amber-deep is too dark to read well on Carbon. Every accent use — text, border, focus ring, fill — picks amber-deep in light mode and amber-bright in dark mode, always paired with the opposite-register neutral for fills.", "section": "colors" },
+      { "name": "The Signage Caps Rule", "body": "Every Big Shoulders Display heading is set in uppercase via CSS text-transform, never relying on source casing.", "section": "typography" },
+      { "name": "The Depth Belongs to the Structure Rule", "body": "2D chrome stays flat and border-defined; dimensional shadow and volume are reserved for the 3D lattice.", "section": "elevation" }
     ],
     "dos": [
-      "Do keep every corner square. Zero border-radius is a hard invariant carried over unchanged from the prior system.",
-      "Do set VT323 for all type, in every role — no second typeface, ever.",
-      "Do keep filled chips (nav pills, LIVE tag, 404 header) broadcast-colored in light mode, per the Chip Exception Rule — do not let them fall back to ink-on-paper.",
-      "Do let running text, borders, and stat/data figures fall back to plain ink in light mode via dark:-prefixed color roles.",
-      "Do use scaleY(1.15) on page numbers and titles only — the Double-Height Rule is reserved for that role.",
-      "Do use tt-frame (2px solid border) and tt-rule (1px dashed) for structural separation instead of shadows or elevation.",
-      "Do use Chip Red (#b30000) rather than bare Alert Red (#ff0000) for any small filled badge that needs reliable white-text contrast.",
-      "Do treat cyan as the system's primary interactive/active signal — active nav state, focus rings, selection, hover, primary CTA."
+      "Do set every Big Shoulders Display heading in uppercase.",
+      "Do use amber-deep in light mode and amber-bright in dark mode for every accent use — there is no bare amber shortcut.",
+      "Do give primary CTAs (and only primary CTAs) a trailing + glyph.",
+      "Do keep 2D chrome flat; reserve real dimensional depth for the 3D lattice.",
+      "Do use real data in every leader-line annotation; never fabricate a stat or reading."
     ],
     "donts": [
-      "Don't round any corner, anywhere, for any reason.",
-      "Don't pair VT323 with a second font for 'hierarchy' — hierarchy comes from size, the double-height transform, and color role only.",
-      "Don't add a resting drop-shadow to page content. The terminal's detach shadow and the hero CTA's inset groove are the only two exceptions, both named above.",
-      "Don't introduce a color outside the six-role palette (yellow/cyan/green/red/red-chip/blue) plus the two register-neutral pairs.",
-      "Don't reintroduce the prior 'Engineering Blueprint' identity — copper accent, blueprint grid texture, Space Grotesk/JetBrains Mono pairing, /01-style numbered sections. None of it carries forward except zero-radius.",
-      "Don't avoid dither/halftone rendering on the assumption it's off-brand — it's a native device of this world that the current build simply hasn't reached yet."
+      "Don't reintroduce the boxed icon/number+label metric-card grid for stats — the craft floor bans it, and this system's stat idiom is the leader-line list.",
+      "Don't render the tension cables as flat unlit lines — they're cylindrical, emissive-tinted geometry.",
+      "Don't round any corner outside the two named exceptions (leader-line dot, lattice joint spheres).",
+      "Don't reach for a second accent hue, a gradient, or glassmorphic panels.",
+      "Don't pair bright amber fills with light text or deep amber fills with dark text — both fail contrast.",
+      "Don't remove the TensegrityScene mount-time resize nudge without understanding why it's there."
     ]
   }
 }

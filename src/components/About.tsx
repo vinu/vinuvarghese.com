@@ -1,33 +1,31 @@
 import React from 'react';
 import { professionalSummary, professionalSummary2, stats } from '../data/resume';
-import PageHeader from './PageHeader';
+import SectionHeading from './SectionHeading';
 
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-16 py-16 md:py-24 px-6">
+    <section id="about" className="scroll-mt-16 py-16 md:py-28 px-6">
       <div className="max-w-6xl mx-auto">
-        <PageHeader pageNum="200" title="About" />
+        <SectionHeading index="01" title="About" />
 
-        <div className="grid md:grid-cols-12 gap-8">
-          <div data-reveal className="md:col-span-7 tt-frame p-6 md:p-8">
-            <p className="font-mono text-xl leading-relaxed mb-4">{professionalSummary}</p>
-            <p className="font-mono text-lg leading-relaxed text-ink/75 dark:text-white/75">
+        <div className="grid md:grid-cols-12 gap-10">
+          <div data-reveal className="md:col-span-7">
+            <p className="font-sans text-lg leading-relaxed mb-5">{professionalSummary}</p>
+            <p className="font-sans text-graphite/70 dark:text-ash leading-relaxed">
               {professionalSummary2}
             </p>
           </div>
 
-          <div className="md:col-span-5 grid grid-cols-2 divide-x-2 divide-y-2 divide-ink/20 dark:divide-white/20 tt-frame">
-            {stats.map((stat, i) => (
+          <div data-reveal className="md:col-span-5 content-start border-t border-graphite/12 dark:border-void/12">
+            {stats.map((stat) => (
               <div
                 key={stat.label}
-                data-reveal
-                style={{ '--reveal-delay': `${i * 90}ms` } as React.CSSProperties}
-                className="bg-paper dark:bg-black p-5"
+                className="flex items-center gap-3 font-mono text-xs text-graphite/60 dark:text-ash border-b border-graphite/12 dark:border-void/12 py-4"
               >
-                <div className="font-mono text-3xl text-ink dark:text-green leading-none">{stat.value}</div>
-                <div className="font-mono text-sm uppercase tracking-wide mt-2 text-ink/70 dark:text-white/70">
-                  {stat.label}
-                </div>
+                <span className="w-1.5 h-1.5 rounded-full border-[1.5px] border-current shrink-0" aria-hidden="true" />
+                <span className="uppercase tracking-wide shrink-0">{stat.label}</span>
+                <span className="flex-1 border-t border-current opacity-30 min-w-4" aria-hidden="true" />
+                <span className="text-amber-deep dark:text-amber-bright text-sm shrink-0">{stat.value}</span>
               </div>
             ))}
           </div>

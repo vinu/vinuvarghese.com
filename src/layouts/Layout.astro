@@ -97,7 +97,7 @@ const jsonLd = {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
@@ -109,8 +109,8 @@ const jsonLd = {
     <meta name="description" content={description} />
     <meta name="author" content="Vinu Varghese" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
-    <meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#e6e3df" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -144,28 +144,42 @@ const jsonLd = {
       gtag('config', measurementId);
     </script>
   </head>
-  <body class="bg-paper text-ink dark:bg-black dark:text-white font-sans antialiased transition-colors duration-300">
+  <body class="bg-concrete text-graphite dark:bg-carbon dark:text-void font-sans antialiased transition-colors duration-300">
     <!--
-      THESIS: A broadcast teletext service, not a scrolling resume — pages
-      keyed by number, refusing the dark-gradient dev-portfolio default.
-      OWN-WORLD: Black ground; fixed broadcast palette (white body, yellow
-      display, cyan signal/active, green secondary, red for alerts and the
-      LIVE tag — broadcast convention, on-air is red); rigid character
-      grid; double-height page headers; block-bordered content cards;
-      VT323 throughout. Light mode: printed-teletext register — body text
-      and hairlines drop to plain ink, but filled chips (page tabs, LIVE,
-      404) keep their broadcast color as small colored stamps on paper,
-      per real teletext-adjacent print convention.
-      STORY: Key or click a 3-digit page (100 Home, 200 About, 300
-      Experience, 400 Skills, 500 Contact) and Vinu's record arrives like a
-      live bulletin — precise, current, built by someone who thinks in
-      systems.
-      FIRST VIEWPORT: Page 100: double-height yellow masthead, red LIVE
-      tag, page-number nav row, green stat ticker, one cyan SELECT-style
-      CTA, portrait visible at all widths.
-      FORM: Challenger "broadcast-programming-teletext-service"
-      (challenger-teletext), chosen by explicit user pick over assigned
-      grounded direction #5 (PCB Silkscreen), seed key bba7f2d5.
+      THESIS: The portfolio as a tensegrity structure — sections held in
+      visible tension, not stacked in a scroll or a broadcast page grid;
+      refuses both the flat teletext identity and the generic glass-blob
+      SaaS hero.
+      OWN-WORLD: Carbon-black/graphite ground, concrete/void-white text,
+      one signal-amber accent (split into deep/bright mode-safe variants
+      — amber fails contrast on both light AND dark grounds depending on
+      direction, so unlike a mid-tone hue there is no single safe bare
+      value); condensed industrial grotesk display (set in caps, matching
+      the world's signage voice) + engineering-monospace data labels; a
+      live-rendered 3D rod-and-cable lattice with joint nodes and a
+      contact shadow anchoring the hero, slowly breathing; cut-corner
+      tab/button motif with a trailing "+" device on primary actions; a
+      dot-plus-rule leader-line annotation used as the system's recurring
+      stat/label idiom (REAL data only — years, stack, stats, never
+      invented figures) — a 2D annotation motif echoing the structure's
+      engineering-callout character, not literal lines routed to 3D
+      coordinates. Light mode: daylight-studio register — poured-concrete
+      ground, graphite text, same amber accent (deep variant), same
+      lattice rendered in dark line-work.
+      STORY: A visitor sees the structure holding itself up through
+      opposing forces before reading a word, then reads real annotated
+      data as they move through each section — balance across many
+      domains, no single point of failure, twenty years of systems work
+      made physical.
+      FIRST VIEWPORT: A dark studio hero: the 3D lattice (rods, tensioned
+      cables, joint nodes, ground shadow) rotates slowly beside the name,
+      condensed white caps display type, one amber cut-corner primary
+      button, leader-line-annotated real stats (years, current role,
+      domains) beneath it.
+      FORM: Challenger "kinetic-sculpture-automata-tensegrity-breathing-
+      column" (challenger-tensegrity), chosen by explicit user pick over
+      assigned grounded direction #6 (Atmospheric Signal Field), seed key
+      6481619f.
       FINISH: unreviewed and undocumented is unfinished; this build ends
       with the finish review, the verdict, and DESIGN.md
     -->
