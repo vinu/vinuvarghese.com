@@ -59,7 +59,7 @@ export default function Skills() {
                 vectorEffect="non-scaling-stroke"
                 className={
                   i === active
-                    ? 'stroke-copper dark:stroke-copper-bright'
+                    ? 'stroke-cobalt dark:stroke-cobalt-bright'
                     : 'stroke-ink/15 dark:stroke-white/15'
                 }
                 strokeWidth="1"
@@ -83,11 +83,11 @@ export default function Skills() {
                 style={{ animation: `float-y ${5 + (i % 3)}s ease-in-out ${i * 0.7}s infinite` }}
                 className={`motion-reduce:animate-none font-mono text-xs px-4 py-2.5 border transition-colors whitespace-nowrap ${
                   i === active
-                    ? 'border-copper text-copper dark:border-copper-bright dark:text-copper-bright bg-paper dark:bg-night'
-                    : 'border-ink/20 dark:border-white/20 bg-paper dark:bg-night text-stone-600 dark:text-stone-400 hover:border-copper/50 dark:hover:border-copper-bright/50'
+                    ? 'border-cobalt text-cobalt dark:border-cobalt-bright dark:text-cobalt-bright bg-paper dark:bg-night'
+                    : 'border-ink/20 dark:border-white/20 bg-paper dark:bg-night text-stone-600 dark:text-stone-400 hover:border-cobalt/50 dark:hover:border-cobalt-bright/50'
                 }`}
               >
-                <span className="text-copper dark:text-copper-bright mr-2">
+                <span className="text-cobalt dark:text-cobalt-bright mr-2">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 {category.title}
@@ -100,14 +100,14 @@ export default function Skills() {
             role="tabpanel"
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 glass border border-ink/15 dark:border-white/15 p-6"
           >
-            <p className="font-mono text-xs text-copper dark:text-copper-bright mb-4">
+            <p className="font-mono text-xs text-cobalt dark:text-cobalt-bright mb-4">
               {String(active + 1).padStart(2, '0')} / {String(skillCategories.length).padStart(2, '0')}
             </p>
             <h3 className="font-bold tracking-tight mb-4">{current.title}</h3>
             <ul className="space-y-2">
               {current.skills.map((skill) => (
                 <li key={skill} className="font-mono text-sm text-stone-600 dark:text-stone-400">
-                  <span className="text-copper dark:text-copper-bright mr-2" aria-hidden="true">
+                  <span className="text-cobalt dark:text-cobalt-bright mr-2" aria-hidden="true">
                     +
                   </span>
                   {skill}
@@ -129,14 +129,14 @@ export default function Skills() {
             <div key={category.id} className="bg-paper dark:bg-night p-6 md:p-8">
               <div className="flex items-baseline justify-between mb-6">
                 <h3 className="font-bold tracking-tight">{category.title}</h3>
-                <span className="font-mono text-xs text-copper dark:text-copper-bright">
+                <span className="font-mono text-xs text-cobalt dark:text-cobalt-bright">
                   {String(i + 1).padStart(2, '0')}
                 </span>
               </div>
               <ul className="space-y-2">
                 {category.skills.map((skill) => (
                   <li key={skill} className="font-mono text-sm text-stone-600 dark:text-stone-400">
-                    <span className="text-copper dark:text-copper-bright mr-2" aria-hidden="true">
+                    <span className="text-cobalt dark:text-cobalt-bright mr-2" aria-hidden="true">
                       +
                     </span>
                     {skill}

@@ -110,7 +110,7 @@ export default function Navigation() {
   const navLinkClass = (href: string) =>
     `font-mono text-sm transition-colors ${
       activeSection === href.slice(1)
-        ? 'text-copper dark:text-copper-bright'
+        ? 'text-cobalt dark:text-cobalt-bright'
         : 'text-stone-500 dark:text-stone-400 hover:text-ink dark:hover:text-white'
     }`;
 
@@ -122,7 +122,7 @@ export default function Navigation() {
           onClick={() => selectTheme(mode)}
           className={`w-full flex items-center gap-3 px-4 py-2 font-mono text-xs transition-colors ${
             theme === mode
-              ? 'text-copper dark:text-copper-bright'
+              ? 'text-cobalt dark:text-cobalt-bright'
               : 'text-stone-500 dark:text-stone-400 hover:text-ink dark:hover:text-white'
           }`}
         >
@@ -149,9 +149,9 @@ export default function Navigation() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="font-mono text-sm font-medium hover:text-copper dark:hover:text-copper-bright transition-colors"
+            className="font-mono text-sm font-medium hover:text-cobalt dark:hover:text-cobalt-bright transition-colors"
           >
-            ~/vinu<span className="text-copper dark:text-copper-bright">_</span>
+            ~/vinu<span className="text-cobalt dark:text-cobalt-bright">_</span>
           </a>
 
           {/* Desktop nav */}
@@ -163,14 +163,14 @@ export default function Navigation() {
                 onClick={(e) => handleClick(e, item.href)}
                 className={navLinkClass(item.href)}
               >
-                <span className="text-copper dark:text-copper-bright">0{i + 1}.</span>
+                <span className="text-cobalt dark:text-cobalt-bright">0{i + 1}.</span>
                 {item.label.toLowerCase()}
               </a>
             ))}
             <div className="relative" ref={desktopThemeRef}>
               <button
                 onClick={() => setThemeMenuOpen(!themeMenuOpen)}
-                className="p-2 text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+                className="p-2 text-stone-500 dark:text-stone-400 hover:text-cobalt dark:hover:text-cobalt-bright transition-colors"
                 aria-label="Theme"
                 title="Theme"
               >
@@ -185,7 +185,7 @@ export default function Navigation() {
             <div className="relative" ref={mobileThemeRef}>
               <button
                 onClick={() => setThemeMenuOpen(!themeMenuOpen)}
-                className="p-2 text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+                className="p-2 text-stone-500 dark:text-stone-400 hover:text-cobalt dark:hover:text-cobalt-bright transition-colors"
                 aria-label="Theme"
                 title="Theme"
               >
@@ -214,7 +214,7 @@ export default function Navigation() {
                   onClick={(e) => handleClick(e, item.href)}
                   className={`py-2 ${navLinkClass(item.href)}`}
                 >
-                  <span className="text-copper dark:text-copper-bright">0{i + 1}.</span>
+                  <span className="text-cobalt dark:text-cobalt-bright">0{i + 1}.</span>
                   {item.label.toLowerCase()}
                 </a>
               ))}
@@ -226,7 +226,7 @@ export default function Navigation() {
       {/* Scroll to top button */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`fixed bottom-8 left-8 z-30 border border-ink/15 dark:border-white/15 bg-paper/80 dark:bg-night/80 backdrop-blur-sm p-3 hover:text-copper dark:hover:text-copper-bright transition-all duration-300 ${
+        className={`fixed bottom-8 left-8 z-30 border border-ink/15 dark:border-white/15 bg-paper/80 dark:bg-night/80 backdrop-blur-sm p-3 hover:text-cobalt dark:hover:text-cobalt-bright transition-all duration-300 ${
           showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         aria-label="Scroll to top"

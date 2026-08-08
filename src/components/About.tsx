@@ -22,7 +22,7 @@ export default function About() {
                 key={stat.label}
                 data-reveal
                 style={{ '--reveal-delay': `${i * 90}ms` } as React.CSSProperties}
-                className="border-t-2 border-copper dark:border-copper-bright pt-4"
+                className="border-t-2 border-cobalt dark:border-cobalt-bright pt-4"
               >
                 <div className="text-4xl font-bold tracking-tight">{stat.value}</div>
                 <div className="font-mono text-xs text-stone-500 dark:text-stone-400 mt-2 uppercase tracking-wider">

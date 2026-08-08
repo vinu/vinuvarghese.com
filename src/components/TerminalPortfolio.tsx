@@ -824,7 +824,7 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
             <div className="flex space-x-2">
               <button
                 onClick={closeHandler}
-                className="w-2.5 h-2.5 bg-copper-bright hover:bg-copper transition-colors"
+                className="w-2.5 h-2.5 bg-cobalt-bright hover:bg-cobalt transition-colors"
                 aria-label="Close terminal"
               />
               <div className="w-2.5 h-2.5 border border-white/25" />
@@ -851,14 +851,14 @@ const TerminalPortfolio: React.FC<{ closeHandler: () => void }> = ({ closeHandle
             ))}
 
             <form onSubmit={handleSubmit} className="flex text-sm">
-              <span className="mr-1 shrink-0 text-copper-bright">{prompt}</span>
+              <span className="mr-1 shrink-0 text-cobalt-bright">{prompt}</span>
               <input
                 ref={inputRef}
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                className="flex-1 bg-transparent outline-none no-focus-ring caret-copper-bright"
+                className="flex-1 bg-transparent outline-none no-focus-ring caret-cobalt-bright"
                 autoFocus
                 spellCheck={false}
                 autoComplete="off"

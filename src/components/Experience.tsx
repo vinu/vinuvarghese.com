@@ -17,13 +17,13 @@ export default function Experience() {
               className="relative pl-8 md:pl-12 pb-14 last:pb-0"
             >
               <span
-                className="absolute -left-[5.5px] top-9 w-2.5 h-2.5 bg-copper dark:bg-copper-bright"
+                className="absolute -left-[5.5px] top-9 w-2.5 h-2.5 bg-cobalt dark:bg-cobalt-bright"
                 aria-hidden="true"
               />
               <div
-                className="glass border border-ink/10 dark:border-white/10 p-6 md:p-8 transition-[border-color,box-shadow] duration-300 hover:border-copper/40 dark:hover:border-copper-bright/40 hover:shadow-[0_16px_48px_-16px_rgba(189,75,18,0.35)] dark:hover:shadow-[0_16px_48px_-16px_rgba(255,140,77,0.25)]"
+                className="glass border border-ink/10 dark:border-white/10 p-6 md:p-8 transition-[border-color,box-shadow] duration-300 hover:border-cobalt/40 dark:hover:border-cobalt-bright/40 hover:shadow-[0_16px_48px_-16px_rgba(189,75,18,0.35)] dark:hover:shadow-[0_16px_48px_-16px_rgba(255,140,77,0.25)]"
               >
-                <p className="font-mono text-xs text-copper dark:text-copper-bright mb-3">
+                <p className="font-mono text-xs text-cobalt dark:text-cobalt-bright mb-3">
                   {exp.period} · {exp.duration}
                 </p>
                 <h3 className="text-xl md:text-2xl font-bold tracking-tight">{exp.role}</h3>
@@ -36,7 +36,7 @@ export default function Experience() {
                 <ul className="space-y-2 max-w-3xl">
                   {exp.achievements.map((achievement) => (
                     <li key={achievement} className="flex gap-3 text-sm leading-relaxed text-stone-600 dark:text-stone-400">
-                      <span className="text-copper dark:text-copper-bright shrink-0" aria-hidden="true">
+                      <span className="text-cobalt dark:text-cobalt-bright shrink-0" aria-hidden="true">
                         ▸
                       </span>
                       {achievement}

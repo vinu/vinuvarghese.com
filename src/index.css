@@ -6,12 +6,12 @@
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* warm paper / warm ink palette with a single copper accent */
+  /* warm paper / warm ink palette with a single cobalt accent */
   --color-paper: #f5f2ea;
   --color-night: #100f0d;
   --color-ink: #1e1c18;
-  --color-copper: #bd4b12;
-  --color-copper-bright: #ff8c4d;
+  --color-cobalt: #1d5fa8;
+  --color-cobalt-bright: #5b9fe8;
 
   --animate-blink: blink 1.1s step-end infinite;
   --animate-fade-up: fade-up 0.7s ease-out both;
@@ -44,16 +44,16 @@
 }
 
 ::selection {
-  background-color: var(--color-copper);
+  background-color: var(--color-cobalt);
   color: var(--color-paper);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-copper);
+  outline: 2px solid var(--color-cobalt);
   outline-offset: 3px;
 }
 .dark :focus-visible {
-  outline-color: var(--color-copper-bright);
+  outline-color: var(--color-cobalt-bright);
 }
 /* opt-out for the terminal input — its blinking caret is the focus indicator */
 .no-focus-ring:focus-visible {
@@ -90,7 +90,7 @@
   50% { transform: translateY(-7px); }
 }
 
-/* Skills-section ambient video: grayscale + copper duotone tint */
+/* Skills-section ambient video: grayscale + cobalt duotone tint */
 .ambient-video {
   filter: grayscale(1) contrast(1.15);
   opacity: 0.35;

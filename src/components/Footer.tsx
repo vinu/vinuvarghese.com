@@ -10,7 +10,7 @@ export default function Footer() {
             <a
               key={item.href}
               href={item.href}
-              className="text-stone-500 dark:text-stone-400 hover:text-copper dark:hover:text-copper-bright transition-colors"
+              className="text-stone-500 dark:text-stone-400 hover:text-cobalt dark:hover:text-cobalt-bright transition-colors"
             >
               {item.label.toLowerCase()}
             </a>

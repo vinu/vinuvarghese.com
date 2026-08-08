@@ -18,8 +18,8 @@ function useThemeColors() {
   }, []);
   // light paper needs a bolder cube and a quieter network than dark
   return dark
-    ? { accent: '#ff8c4d', line: '#d6d3d1', cube: 0.55, net: 0.12, dot: 0.5 }
-    : { accent: '#bd4b12', line: '#78716c', cube: 0.75, net: 0.07, dot: 0.32 };
+    ? { accent: '#5b9fe8', line: '#d6d3d1', cube: 0.55, net: 0.12, dot: 0.5 }
+    : { accent: '#1d5fa8', line: '#78716c', cube: 0.75, net: 0.07, dot: 0.32 };
 }
 
 function Network({ line, net, dot }: { line: string; net: number; dot: number }) {

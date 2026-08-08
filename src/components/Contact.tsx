@@ -33,7 +33,7 @@ export default function Contact() {
                 <span
                   className={`truncate ${
                     isExternal
-                      ? 'group-hover:text-copper dark:group-hover:text-copper-bright transition-colors'
+                      ? 'group-hover:text-cobalt dark:group-hover:text-cobalt-bright transition-colors'
                       : ''
                   }`}
                 >
@@ -41,7 +41,7 @@ export default function Contact() {
                 </span>
                 {isExternal && (
                   <span
-                    className="ml-auto font-mono text-copper dark:text-copper-bright opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="ml-auto font-mono text-cobalt dark:text-cobalt-bright opacity-0 group-hover:opacity-100 transition-opacity"
                     aria-hidden="true"
                   >
                     ↗
