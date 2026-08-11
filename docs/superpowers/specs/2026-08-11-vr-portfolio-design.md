@@ -50,7 +50,7 @@ If it resolves `true`, show a dismissible banner: "VR headset detected — enter
 
 `VrPortfolio.tsx`:
 - `<XR>` (from `@react-three/xr`) wraps a `<Canvas>`.
-- `<XRButton mode="VR">` to start the session — this hides/no-ops itself on browsers without WebXR support, so `/vr` never shows a broken "enter VR" control to someone without the capability.
+- A plain button calling `store.enterVR()` (this version of `@react-three/xr` has no `<XRButton>` component) — the call rejects quietly on browsers without WebXR support, so `/vr` never shows a broken "enter VR" control, it just no-ops.
 - A ground/teleport plane using `@react-three/xr`'s teleportation primitives.
 - Floating content panels for the 4 resume sections.
 - A camera-rig component that switches behavior based on whether an XR session is active (see Locomotion).
