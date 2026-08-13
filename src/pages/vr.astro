@@ -1,10 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import VrExperience from '../components/vr/VrExperience';
+import { getProfileImage } from '../utils/ImageUtils';
+
+const profileImage = await getProfileImage();
 ---
 
 <Layout title="VR Portfolio — Vinu Varghese" noindex={true}>
   <main class="relative">
-    <VrExperience client:only="react" />
+    <VrExperience client:only="react" profileImage={profileImage.src} />
   </main>
 </Layout>

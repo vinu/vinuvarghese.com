@@ -9,7 +9,11 @@ const store = createXRStore({
   emulate: import.meta.env.DEV,
 });
 
-export default function VrExperience() {
+interface VrExperienceProps {
+  profileImage: string;
+}
+
+export default function VrExperience({ profileImage }: VrExperienceProps) {
   return (
     <div className="relative w-full h-svh overflow-hidden bg-night">
       <div className="absolute top-4 inset-x-0 z-10 flex flex-col items-center gap-2 pointer-events-none">
@@ -27,7 +31,7 @@ export default function VrExperience() {
       </div>
       <Canvas camera={{ position: [0, 1.5, 0], fov: 60 }} gl={{ antialias: true }}>
         <XR store={store}>
-          <VrScene />
+          <VrScene profileImage={profileImage} />
         </XR>
       </Canvas>
     </div>
