@@ -114,7 +114,11 @@ export default function Hero({ profileImage }: HeroProps) {
         href="#about"
         className="relative self-center mb-8 font-mono text-xs text-stone-500 dark:text-stone-400 hover:text-cobalt dark:hover:text-cobalt-bright transition-colors flex items-center gap-2"
       >
-        scroll <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
+        scroll{' '}
+        <ArrowDown
+          className="w-3.5 h-3.5 motion-reduce:animate-none"
+          style={{ animation: 'float-y 2s ease-in-out infinite' }}
+        />
       </a>
 
       {/* Terminal Modal */}

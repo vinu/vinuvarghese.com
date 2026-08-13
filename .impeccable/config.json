@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-08-13T13:02:01.109Z",
+        "reason": "User confirmed Space Grotesk is intentional, deliberately paired with JetBrains Mono; site distinctiveness comes from the overall engineering-blueprint system, not the display face alone"
+      },
+      {
+        "rule": "codex-grid-background",
+        "value": "*",
+        "files": [
+          "src/index.css"
+        ],
+        "createdAt": "2026-08-13T13:02:05.513Z",
+        "reason": "Thematically justified: this is the .blueprint texture on a design system literally called \"engineering blueprint\" — fits the rule's own stated exception for blueprint/measurement surfaces"
+      }
+    ]
+  }
+}
