@@ -27,3 +27,9 @@ pnpm-debug.log*
 .bolt/
 logs/
 Page_Insights_Report.md
+
+# impeccable: per-developer/transient; .impeccable/config.json (shared
+# detector ignores) is intentionally tracked
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/questions/
