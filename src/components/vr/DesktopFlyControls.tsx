@@ -9,8 +9,11 @@ export default function DesktopFlyControls() {
   const { camera, gl } = useThree();
   const keys = useRef<Record<string, boolean>>({});
   const dragging = useRef(false);
-  const yaw = useRef(camera.rotation.y);
-  const pitch = useRef(camera.rotation.x);
+  // Seeded to a fixed level/forward start rather than read from camera.rotation:
+  // R3F's default camera auto-lookAt(0,0,0), and this camera sits directly
+  // above the origin, so its initial rotation is a broken straight-down pitch.
+  const yaw = useRef(0);
+  const pitch = useRef(0);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
