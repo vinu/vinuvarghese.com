@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { Vector3 } from 'three';
 import { TeleportTarget, XROrigin, useXR } from '@react-three/xr';
 import { vrPanels } from '../../data/vrPanels';
@@ -22,16 +22,17 @@ export default function VrScene() {
       {vrPanels.map((panel, i) => {
         const angle = (i * Math.PI) / 2;
         return (
-          <Panel
-            key={panel.index}
-            data={panel}
-            position={[
-              Math.sin(angle) * PANEL_RADIUS,
-              PANEL_HEIGHT,
-              -Math.cos(angle) * PANEL_RADIUS,
-            ]}
-            rotationY={-angle}
-          />
+          <Suspense key={panel.index} fallback={null}>
+            <Panel
+              data={panel}
+              position={[
+                Math.sin(angle) * PANEL_RADIUS,
+                PANEL_HEIGHT,
+                -Math.cos(angle) * PANEL_RADIUS,
+              ]}
+              rotationY={-angle}
+            />
+          </Suspense>
         );
       })}
 

@@ -5,6 +5,8 @@ import VrScene from './VrScene';
 const store = createXRStore({
   hand: { teleportPointer: true },
   controller: { teleportPointer: true },
+  offerSession: 'immersive-vr',
+  emulate: import.meta.env.DEV,
 });
 
 export default function VrExperience() {

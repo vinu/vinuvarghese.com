@@ -21,8 +21,8 @@ export default function VrPrompt() {
   if (!supported || dismissed) return null;
 
   return (
-    <div role="status" className="fixed bottom-6 inset-x-0 z-40 flex justify-center px-4">
-      <div className="flex items-center gap-4 border border-cobalt dark:border-cobalt-bright bg-paper dark:bg-night px-4 py-3 font-mono text-xs">
+    <div role="status" className="fixed bottom-6 inset-x-0 z-40 flex justify-center px-4 pointer-events-none">
+      <div className="pointer-events-auto flex items-center gap-4 border border-cobalt dark:border-cobalt-bright bg-paper dark:bg-night px-4 py-3 font-mono text-xs">
         <span>VR headset detected —</span>
         <a href="/vr" className="text-cobalt dark:text-cobalt-bright underline underline-offset-4">
           enter 3D portfolio

@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 const {
   title = 'Vinu Varghese | Technical Architect - Cloud & AI Solutions Expert',
   description = 'Vinu Varghese - Technical Architect with 20+ years of experience in cloud computing (AWS, Azure), artificial intelligence, and full-stack enterprise solutions. Expert in digital transformation, microservices, and scalable system design.',
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://www.vinuvarghese.com';
@@ -108,7 +109,7 @@ const jsonLd = {
     <!-- SEO Meta Tags -->
     <meta name="description" content={description} />
     <meta name="author" content="Vinu Varghese" />
-    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
     <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#100f0d" media="(prefers-color-scheme: dark)" />
 
