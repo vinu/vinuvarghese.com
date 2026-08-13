@@ -4,5 +4,5 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://www.vinuvarghese.com',
-  integrations: [react(), sitemap()],
+  integrations: [react(), sitemap({ filter: (page) => !page.endsWith('/vr/') })],
 });
