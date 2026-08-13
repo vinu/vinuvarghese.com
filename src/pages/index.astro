@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation';
+import VrPrompt from '../components/VrPrompt';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Experience from '../components/Experience';
@@ -12,6 +13,7 @@ const profileImage = await getProfileImage();
 
 <Layout>
   <Navigation client:load />
+  <VrPrompt client:load />
   <main class="min-h-screen">
     <Hero client:load profileImage={profileImage.src} />
     <About />
